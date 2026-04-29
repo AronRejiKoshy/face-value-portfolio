@@ -1,24 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Project Management</title>
-  <link rel="stylesheet" href="style.css">
+ <meta charset="UTF-8">
+ <title>Research & Application | Face Value</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="case-page research-page">
 
 <nav class="nav">
-  <div class="logo">FACE VALUE</div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-  </div>
+<div class="logo">FACE VALUE <span class="nav-subtitle">/ FILE 02: RESEARCH & APPLICATION</span></div>
+ <div class="nav-links">
+   <a href="index.html">Case Index</a>
+  <a href="progression.html">Next File</a>
+ </div>
 </nav>
 
-<section style="padding: 60px;">
-  <h1>Project Management</h1>
-  <p>Lorem ipsum dolor sit amet...</p>
+<header class="case-hero">
+ <p class="case-kicker">Evidence Wall / Context and Influence</p>
+ <h1>Research & Application</h1>
+ <p>Research is treated as evidence: each source, visual reference, and contextual idea has to prove how it affected the project. Click any exhibit to review the full dossier.</p>
+ <div class="case-meta-row">
+   <span>Status: Cross-Referenced</span>
+   <span>Format: Evidence Dossiers</span>
+   <span>Action: Click to Expand</span>
+ </div>
+</header>
+
+<main class="evidence-wall">
+ <article class="evidence-card" data-modal="modal-a">
+   <span class="evidence-code">EXHIBIT A</span>
+   <h2>Academic & Theory</h2>
+   <p>Journals, texts, and methodology exploring the ethics of branding and human commodification.</p>
+ </article>
+
+ <article class="evidence-card" data-modal="modal-b">
+   <span class="evidence-code">EXHIBIT B</span>
+   <h2>Gallery & Visual</h2>
+   <p>Exhibition visits, installation precedents, and visual systems that informed the gritty aesthetic.</p>
+ </article>
+
+ <article class="evidence-card" data-modal="modal-c">
+   <span class="evidence-code">EXHIBIT C</span>
+   <h2>Media & Culture</h2>
+   <p>Films, series, and pop culture artifacts analyzed for tone, narrative, and audience manipulation.</p>
+ </article>
+
+ <article class="evidence-card" data-modal="modal-d">
+   <span class="evidence-code">EXHIBIT D</span>
+   <h2>Ludology & Mechanics</h2>
+   <p>Analysis of board game design, true-crime mechanics, and rule structures applied to the final outcome.</p>
+ </article>
+</main>
+
+<section class="evidence-logs">
+  <span class="evidence-code">SUBPOENAED RECORDS</span>
+  <h2>Evidence Logs / Bibliography</h2>
+  <div class="log-container">
+    
+    <div class="log-entry">
+      <strong>Abramović, M.</strong> (1974) <em>Rhythm 0</em>. [Performance]. Studio Morra, Naples.
+    </div>
+    
+    <div class="log-entry">
+      <strong>Arvidsson, A.</strong> (2005) <em>Brands: Meaning and Value in Media Culture</em>. London: Routledge.
+    </div>
+
+    <div class="log-entry">
+      <strong>Baudrillard, J.</strong> (1998) <em>The Consumer Society: Myths and Structures</em>. London: Sage Publications.
+    </div>
+
+    <div class="log-entry">
+      <strong>Goffman, E.</strong> (1979) <em>Gender Advertisements</em>. Cambridge: Harvard University Press.
+    </div>
+
+    <div class="log-entry">
+      <strong>Klein, N.</strong> (1999) <em>No Logo: Taking Aim at the Brand Bullies</em>. New York: Picador.
+    </div>
+    
+    </div>
 </section>
 
+<a href="index.html" class="return-archive">[ RETURN TO ARCHIVE ]</a>
+
+<div class="evidence-modal" id="modal-a">
+  <div class="evidence-modal-content">
+    <button class="modal-close-btn">&times;</button>
+    <span class="evidence-code">DOSSIER A: ACADEMIC & THEORY</span>
+    <h2>Literature Review & Methodology</h2>
+    <p>This section investigates the foundational theories driving the project. By examining texts like Naomi Klein's <em>No Logo</em> and Jean Baudrillard's <em>The Consumer Society</em>, the project establishes a framework for understanding how human identity is packaged and sold.</p>
+    <p><em>(You can expand on specific quotes, how they changed your thinking, and how you applied these theories to your board game mechanics here.)</em></p>
+  </div>
+</div>
+
+<div class="evidence-modal" id="modal-b">
+  <div class="evidence-modal-content">
+    <button class="modal-close-btn">&times;</button>
+    <span class="evidence-code">DOSSIER B: GALLERY & VISUAL</span>
+    <h2>Visual Precedents & Exhibitions</h2>
+    <p>Visual research was critical in establishing the "Case File" and "True Crime" aesthetics. Visits to specific exhibitions provided insight into how information can be displayed to overwhelm, engage, or implicate the viewer.</p>
+    <p><em>(Talk about specific galleries, artists like Barbara Kruger or Jenny Holzer, and how their visual language influenced your UI/UX and physical game pieces here.)</em></p>
+  </div>
+</div>
+
+<div class="evidence-modal" id="modal-c">
+  <div class="evidence-modal-content">
+    <button class="modal-close-btn">&times;</button>
+    <span class="evidence-code">DOSSIER C: MEDIA & CULTURE</span>
+    <h2>Cinematic & Cultural Influences</h2>
+    <p>To capture the authentic tension of a crime investigation, various films and series were analyzed. The pacing of these narratives directly informed how the "player" uncovers clues within the board game.</p>
+    <p><em>(List the movies/shows you watched, what you noted about their lighting, props, or storytelling, and how you stole those ideas for your project.)</em></p>
+  </div>
+</div>
+
+<div class="evidence-modal" id="modal-d">
+  <div class="evidence-modal-content">
+    <button class="modal-close-btn">&times;</button>
+    <span class="evidence-code">DOSSIER D: LUDOLOGY & MECHANICS</span>
+    <h2>Game Design Research</h2>
+    <p>Transitioning from a pure branding installation to a playable game required an investigation into ludology (the study of games). Research focused on rule-setting, player agency, and how mechanics can force players to confront their own unconscious biases.</p>
+    <p><em>(Discuss other board games you played/studied, what mechanics worked, what failed, and how you applied them to Face Value.)</em></p>
+  </div>
+</div>
+
+<script src="research.js"></script>
 </body>
 </html>

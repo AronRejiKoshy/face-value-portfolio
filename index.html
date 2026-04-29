@@ -1,48 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Face Value</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+ <meta charset="UTF-8" />
+ <title>Face Value</title>
+ <link rel="stylesheet" href="style.css" />
+ <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body class="home-page">
 
-  <header class="home-title">
-    <h1>FACE VALUE</h1>
-  </header>
+ <header class="home-title">
+   <p class="case-kicker">Case Index / Portfolio Investigation</p>
+   <h1>FACE VALUE</h1>
+   <p class="case-summary">An evidence board for the planning, research, making, and presentation of the project.</p>
+ </header>
 
-  <!-- BOARD -->
-  <section class="board">
+ <section class="board">
+   <div class="board-lines" aria-hidden="true">
+     <svg class="case-strings" viewBox="0 0 100 100" preserveAspectRatio="none">
+       <line x1="33" y1="15" x2="52" y2="38"></line>
+       <line x1="52" y1="38" x2="70" y2="15"></line>
+       <line x1="52" y1="38" x2="37" y2="68"></line>
+       <line x1="52" y1="38" x2="68" y2="68"></line>
+       <line x1="37" y1="68" x2="68" y2="68"></line>
+     </svg>
+   </div>
 
-    <div class="card" data-link="management.html">
-      <h2>Project Management</h2>
-      <p>Lorem ipsum dolor sit amet.</p>
-    </div>
+   <div class="card" data-link="management.html">
+     <span class="case-tag">FILE 01</span>
+     <h2>Project Management</h2>
+     <p>Proposal documents, ethics approval, risk assessment, and project admin.</p>
+   </div>
 
-    <div class="card" data-link="progression.html">
-      <h2>Project Progression</h2>
-      <p>Lorem ipsum dolor sit amet.</p>
-    </div>
+  <div class="card" data-link="research.html">
+    <span class="case-tag">FILE 02</span>
+    <h2>Research & Application</h2>
+    <p>Sources, influences, visual tests, and how the research shaped the outcome.</p>
+  </div>
 
-    <div class="card" data-link="research.html">
-      <h2>Research & Application</h2>
-      <p>Lorem ipsum dolor sit amet.</p>
-    </div>
+  <div class="card" data-link="progression.html">
+    <span class="case-tag">FILE 03</span>
+    <h2>Project Progression</h2>
+    <p>A chronological timeline of decisions, changes, and production milestones.</p>
+  </div>
 
-    <div class="card" data-link="practice.html">
-      <h2>Project in Practice</h2>
-      <p>Lorem ipsum dolor sit amet.</p>
-    </div>
+   <div class="card" data-link="practice.html">
+     <span class="case-tag">FILE 04</span>
+     <h2>Project in Practice</h2>
+     <p>Field notes from making, testing, refining, and responding to feedback.</p>
+   </div>
 
-    <div class="card" data-link="presentation.html">
-      <h2>Project in Presentation</h2>
-      <p>Lorem ipsum dolor sit amet.</p>
-    </div>
+   <div class="card" data-link="presentation.html">
+     <span class="case-tag">FILE 05</span>
+     <h2>Project in Presentation</h2>
+     <p>The final exhibit: presentation choices, audience experience, and reflection.</p>
+   </div>
 
-  </section>
+   <div class="personnel-file">
+     <div class="id-details">
+       <span class="id-label">Lead Investigator</span>
+       <h2>Aron Reji Koshy</h2>
+       <p>ID_00133915</p>
+       <div class="id-links">
+         <a href="https://www.linkedin.com/in/aron-reji-" target="_blank">LinkedIn</a>
+         <a href="#" id="copyEmailBtn">Copy Email</a>
+       </div>
+     </div>
+   </div>
 
-  <script src="script.js"></script>
+ </section>
+
+ <div id="clipboardToast" class="clipboard-toast">EMAIL COPIED TO CLIPBOARD</div>
+
+ <script src="script.js"></script>
 </body>
 </html>
