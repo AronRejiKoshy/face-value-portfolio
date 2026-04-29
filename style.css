@@ -334,7 +334,7 @@ body.page-leaving {
  grid-template-columns: repeat(4, minmax(0, 1fr));
  gap: 22px;
  max-width: 1120px;
- margin: 0 auto 60px; /* Reduced bottom margin to fit logs */
+ margin: 0 auto 60px; 
  padding: 0 32px;
 }
 
@@ -403,7 +403,6 @@ body.page-leaving {
   padding: 20px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  /* Use the Red X cursor on the dark background */
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M8 8 L24 24 M24 8 L8 24' stroke='%239E4242' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") 16 16, pointer;
 }
 
@@ -414,16 +413,16 @@ body.page-leaving {
 
 .evidence-modal-content {
   background: #1a1a1a;
-  max-width: 700px;
+  max-width: 800px;
   width: 100%;
   max-height: 85vh;
   overflow-y: auto;
   padding: 50px 40px;
   border: 1px solid #2a2a2a;
-  border-top: 4px solid #9E4242; /* Red accent header */
+  border-top: 4px solid #9E4242; 
   position: relative;
   box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-  cursor: default; /* Reset cursor inside the dossier */
+  cursor: default; 
 }
 
 .modal-close-btn {
@@ -460,6 +459,74 @@ body.page-leaving {
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 20px;
+}
+
+/* DOSSIER SPLIT LAYOUT (Text + Image) */
+.dossier-split-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+/* REVERSED LAYOUT */
+.dossier-split-reversed {
+  flex-direction: row-reverse;
+}
+
+.dossier-text {
+  flex: 1;
+}
+
+.dossier-image-container {
+  flex-shrink: 0;
+  width: 240px; 
+  padding: 12px 12px 36px 12px; 
+  background: #e8e6df; 
+  border-radius: 2px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(0,0,0,0.1);
+  transform: rotate(2deg); 
+  position: relative;
+}
+
+/* Reverse the tilt for the reversed layout to keep it messy */
+.dossier-split-reversed .dossier-image-container {
+  transform: rotate(-2deg);
+}
+
+.dossier-image-container::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 60px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.dossier-split-reversed .dossier-image-container::before {
+  transform: translateX(-50%) rotate(3deg);
+}
+
+.dossier-img {
+  width: 100%;
+  display: block;
+  filter: contrast(1.1) saturate(0.9); 
+  border-radius: 1px;
+}
+
+.dossier-quote {
+  border-left: 3px solid #9E4242;
+  padding: 10px 0 10px 20px;
+  margin: 24px 0;
+  font-family: 'IBM Plex Sans', monospace; 
+  font-size: 15px;
+  line-height: 1.6;
+  color: #d8c28a;
+  background: rgba(216, 194, 138, 0.05);
 }
 
 /* EVIDENCE LOGS (BIBLIOGRAPHY) */
@@ -943,6 +1010,9 @@ body.page-leaving {
  .modal-arrow.right { right: -76px; }
  .page-counter { bottom: -10px; right: 10px; }
  .personnel-file { position: relative; inset: auto; margin-top: 30px; transform: none; width: fit-content; }
+ .dossier-split-layout, .dossier-split-reversed { flex-direction: column; }
+ .dossier-image-container { width: 100%; transform: none; }
+ .dossier-split-reversed .dossier-image-container { transform: none; }
 }
 
 @media (max-width: 620px) {
