@@ -152,7 +152,7 @@ body.page-leaving {
  opacity: 0.74;
 }
 
-.case-page > :not(.zoom-overlay):not(.evidence-modal) {
+.case-page > :not(.zoom-overlay):not(.evidence-modal):not(.research-zoom-overlay) {
  position: relative;
  z-index: 1;
 }
@@ -461,7 +461,7 @@ body.page-leaving {
   margin-bottom: 20px;
 }
 
-/* DOSSIER SPLIT LAYOUT (Text + Image) */
+/* DOSSIER SPLIT LAYOUT (Text + Single Image) */
 .dossier-split-layout {
   display: flex;
   gap: 40px;
@@ -469,7 +469,6 @@ body.page-leaving {
   margin-top: 20px;
 }
 
-/* REVERSED LAYOUT */
 .dossier-split-reversed {
   flex-direction: row-reverse;
 }
@@ -489,7 +488,6 @@ body.page-leaving {
   position: relative;
 }
 
-/* Reverse the tilt for the reversed layout to keep it messy */
 .dossier-split-reversed .dossier-image-container {
   transform: rotate(-2deg);
 }
@@ -516,6 +514,177 @@ body.page-leaving {
   display: block;
   filter: contrast(1.1) saturate(0.9); 
   border-radius: 1px;
+}
+
+/* =================================================== */
+/* ZIG-ZAG DOSSIER LAYOUT (Used in Exhibit F)          */
+/* =================================================== */
+.dossier-f-content {
+  max-width: 1080px; 
+}
+
+.dossier-f-layout {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.dossier-f-row {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  align-items: center; /* Vertically centers text with image */
+  z-index: 2;
+  position: relative;
+}
+
+.dossier-f-row-reverse {
+  flex-direction: row-reverse;
+  margin-top: -15px; /* Pulls the bottom row up slightly for a tighter fit */
+}
+
+.dossier-f-copy {
+  flex: 1;
+  min-width: 300px;
+}
+
+.dossier-f-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* The Massive Polaroid Container */
+.dossier-f-photo {
+  flex-shrink: 0;
+  width: 440px; 
+  margin: 0;
+  padding: 16px 16px 46px 16px;
+  background: #e8e6df;
+  border-radius: 2px;
+  box-shadow: 0 16px 34px rgba(0,0,0,0.62), inset 0 0 0 1px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 5;
+}
+
+.dossier-f-photo::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 68px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.22);
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.tilt-left { transform: rotate(-1.5deg); }
+.tilt-left::before { transform: translateX(-50%) rotate(3deg); }
+
+.tilt-right { transform: rotate(1.5deg); }
+.tilt-right::before { transform: translateX(-50%) rotate(-3deg); }
+
+.dossier-f-photo .dossier-img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  max-height: 360px;
+}
+
+.research-zoomable {
+  cursor: zoom-in;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.research-zoomable:hover {
+  filter: contrast(1.14) saturate(1.02);
+  transform: scale(1.012);
+}
+
+/* Updated Quote Alignment to lock perfectly underneath the right text column */
+.dossier-f-quote {
+  align-self: flex-end; /* Pushes to the right */
+  width: calc(100% - 490px); /* Exactly the width of the right column (100% minus image & gap) */
+  margin: 20px 0 20px auto; 
+  box-sizing: border-box;
+  padding: 16px 30px;
+  font-size: 18px;
+  text-align: left;
+  position: relative;
+  z-index: 10;
+}
+
+.photo-credit {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.15);
+  font-family: 'IBM Plex Sans', monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  color: rgba(17, 17, 17, 0.8);
+  text-transform: uppercase;
+}
+
+.photo-credit strong {
+  color: #9E4242;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* =================================================== */
+/* IMAGE ZOOM OVERLAY (Research Page)                  */
+/* =================================================== */
+.research-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 34px;
+  background: rgba(5, 5, 5, 0.94);
+  cursor: zoom-out;
+}
+
+.research-zoom-overlay.active {
+  display: flex;
+}
+
+#researchZoomImage {
+  max-width: min(94vw, 1180px);
+  max-height: 82vh;
+  object-fit: contain;
+  border: 1px solid rgba(245, 245, 245, 0.16);
+  box-shadow: 0 26px 80px rgba(0,0,0,0.82);
+}
+
+#researchZoomCaption {
+  max-width: 760px;
+  margin: 0;
+  color: rgba(245, 245, 245, 0.74);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.research-zoom-close {
+  position: fixed;
+  top: 24px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: rgba(245, 245, 245, 0.72);
+  font-size: 42px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.research-zoom-close:hover {
+  color: #9E4242;
 }
 
 .dossier-quote {
@@ -1010,9 +1179,21 @@ body.page-leaving {
  .modal-arrow.right { right: -76px; }
  .page-counter { bottom: -10px; right: 10px; }
  .personnel-file { position: relative; inset: auto; margin-top: 30px; transform: none; width: fit-content; }
- .dossier-split-layout, .dossier-split-reversed { flex-direction: column; }
- .dossier-image-container { width: 100%; transform: none; }
+ 
+ /* Make sure all layout types collapse to a single column on smaller screens */
+ .dossier-split-layout, .dossier-split-reversed, .dossier-f-row, .dossier-f-row-reverse { flex-direction: column; gap: 24px; margin-top: 0; }
+ .dossier-image-container, .dossier-f-photo { width: 100%; max-width: 500px; margin: 0 auto 20px auto; transform: none; height: auto; }
  .dossier-split-reversed .dossier-image-container { transform: none; }
+ .evidence-photo { transform: none !important; }
+ .dossier-f-content { max-width: min(900px, 94vw); }
+ .dossier-f-photo .dossier-img { max-height: none; }
+
+ /* Reset quote layout on mobile */
+ .dossier-f-quote {
+   width: 100%;
+   max-width: 100%;
+   margin: 10px 0;
+ }
 }
 
 @media (max-width: 620px) {
@@ -1024,4 +1205,8 @@ body.page-leaving {
  .carousel-track { width: 72vw; height: 430px; }
  .arrow { font-size: 36px; padding: 10px; }
  .modal-arrow { display: none; }
+ .evidence-modal-content { padding: 38px 22px; }
+ .research-zoom-overlay { padding: 18px; }
+ #researchZoomImage { max-width: 94vw; max-height: 76vh; }
+ .research-zoom-close { top: 14px; right: 18px; }
 }
