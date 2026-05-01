@@ -1,23 +1,14 @@
-// 0. Accordion Toggle Logic
 const accordions = document.querySelectorAll('.accordion-toggle');
 
 accordions.forEach(acc => {
   acc.addEventListener('click', () => {
-    // Toggle active state for icon rotation
     acc.classList.toggle('active');
-    
-    // Target the content wrapper
-    const content = acc.nextElementSibling;
-    
-    // Toggle open state for height animation
-    content.classList.toggle('open');
+    acc.nextElementSibling.classList.toggle('open');
   });
 });
 
-// Helper function to pad numbers with a leading zero
 const pad = (num) => num < 10 ? '0' + num : num;
 
-// 1. Setup all Document Sliders independently (Main Page)
 const carousels = document.querySelectorAll('.carousel');
 
 carousels.forEach(carousel => {
@@ -27,7 +18,6 @@ carousels.forEach(carousel => {
  const rightBtn = carousel.querySelector('.arrow.right');
  const counter = carousel.querySelector('.page-counter');
   
- // Hide arrows and counter if only one image
  if (images.length <= 1) {
    if (leftBtn) leftBtn.style.display = 'none';
    if (rightBtn) rightBtn.style.display = 'none';
@@ -37,7 +27,6 @@ carousels.forEach(carousel => {
 
  let currentIndex = 0;
  
- // Initialize counter text
  if (counter) {
    counter.textContent = `PAGE ${pad(1)} / ${pad(images.length)}`;
  }
@@ -53,7 +42,7 @@ carousels.forEach(carousel => {
  }
 
  leftBtn.addEventListener('click', (e) => {
-   e.stopPropagation(); // Stop click from bubbling to the zoom
+   e.stopPropagation();
    updateGallery(currentIndex - 1);
  });
 
@@ -63,27 +52,21 @@ carousels.forEach(carousel => {
  });
 });
 
-
-// 2. Enhanced Zoom Functionality with Modal Carousel
 const zoomOverlay = document.getElementById("zoomOverlay");
 const zoomedImage = document.getElementById("zoomedImage");
 const modalLeftBtn = document.getElementById("modalLeft");
 const modalRightBtn = document.getElementById("modalRight");
 const modalCounter = document.getElementById("modalCounter");
 
-let activeModalImages = []; // Stores the images of the currently viewed document
+let activeModalImages = [];
 let currentModalIndex = 0;
 
 document.querySelectorAll(".zoomable").forEach(img => {
  img.addEventListener("click", () => {
-   // Find all the images in the same specific carousel track
    const track = img.closest('.carousel-track');
    activeModalImages = Array.from(track.querySelectorAll('img'));
-  
-   // Find what page number we just clicked
    currentModalIndex = activeModalImages.indexOf(img);
-  
-   // Hide modal arrows and counter if it's a 1-page document
+
    if (activeModalImages.length <= 1) {
      modalLeftBtn.style.display = 'none';
      modalRightBtn.style.display = 'none';
@@ -97,16 +80,12 @@ document.querySelectorAll(".zoomable").forEach(img => {
      }
    }
 
-   // Open the overlay
    zoomOverlay.classList.add("active");
    zoomedImage.src = img.src;
-  
-   // Stop the background page from scrolling while zoomed in
    document.body.style.overflow = 'hidden';
  });
 });
 
-// Function to handle modal arrow clicks
 function changeModalImage(newIndex) {
  currentModalIndex = (newIndex + activeModalImages.length) % activeModalImages.length;
  zoomedImage.src = activeModalImages[currentModalIndex].src;
@@ -117,22 +96,20 @@ function changeModalImage(newIndex) {
 }
 
 modalLeftBtn.addEventListener('click', (e) => {
- e.stopPropagation(); // Prevents the click from closing the overlay
+ e.stopPropagation();
  changeModalImage(currentModalIndex - 1);
 });
 
 modalRightBtn.addEventListener('click', (e) => {
- e.stopPropagation(); // Prevents the click from closing the overlay
+ e.stopPropagation();
  changeModalImage(currentModalIndex + 1);
 });
 
-// Close logic: Click anywhere on the dark background
 zoomOverlay.addEventListener("click", () => {
  zoomOverlay.classList.remove("active");
- document.body.style.overflow = ''; // Allow background scrolling again
+ document.body.style.overflow = '';
 });
 
-// Optional: Close overlay if they press the Esc key
 document.addEventListener('keydown', (e) => {
  if (e.key === 'Escape' && zoomOverlay.classList.contains('active')) {
    zoomOverlay.classList.remove("active");

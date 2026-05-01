@@ -1,4 +1,5 @@
 html {
+  --close-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M8 8 L24 24 M24 8 L8 24' stroke='%239E4242' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") 16 16, pointer;
   background-color: #111111; /* Fixes the white scroll bounce */
 }
 
@@ -69,11 +70,6 @@ body.page-leaving {
 .board { position: relative; height: calc(100vh - 150px); min-height: 580px; max-width: 1180px; margin: 0 auto; }
 .board::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(circle at 50% 46%, rgba(158, 66, 66, 0.16), transparent 58%); opacity: 0.28; transition: opacity 0.35s ease; }
 .board:has(.card:hover)::after { opacity: 0.5; }
-.board-lines { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-.case-strings { width: 100%; height: 100%; overflow: visible; }
-.case-strings line { stroke: rgba(176, 38, 38, 0.72); stroke-width: 0.18; stroke-linecap: round; filter: drop-shadow(0 0 5px rgba(158, 66, 66, 0.45)); vector-effect: non-scaling-stroke; }
-.case-strings line:nth-child(2n) { stroke: rgba(218, 84, 71, 0.58); }
-
 .card { --card-tilt: 0deg; --float-x: 0px; --float-y: 0px; --float-rotate: 0deg; --magnet-x: 0px; --magnet-y: 0px; position: absolute; z-index: 1; width: 220px; padding: 20px; background: #1a1a1a; border: 1px solid #2a2a2a; cursor: pointer; transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease, opacity 0.35s ease; }
 .home-page .card { color: #181818; background: radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.8), transparent 16%), repeating-radial-gradient(circle at 14% 26%, rgba(0, 0, 0, 0.035) 0 1px, transparent 1px 5px), repeating-linear-gradient(105deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 7px), linear-gradient(145deg, #f0f0ef, #d9dada); border-color: rgba(255, 255, 255, 0.42); border-radius: 4px; box-shadow: 0 18px 34px rgba(0, 0, 0, 0.38), 0 2px 2px rgba(0, 0, 0, 0.18); filter: saturate(0.92) contrast(0.96); transform: translate3d(calc(var(--magnet-x) + var(--float-x)), calc(var(--magnet-y) + var(--float-y)), 0) rotate(calc(var(--card-tilt) + var(--float-rotate))); transform-origin: center top; animation: card-drift 31s ease-in-out infinite alternate; will-change: transform; }
 .home-page .card::before { content: ""; position: absolute; top: 9px; left: 50%; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffd9d9 0 18%, #b84a4a 48%, #5d1515 100%); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.38), 0 0 10px rgba(158, 66, 66, 0.28); transform: translateX(-50%); }
@@ -93,12 +89,6 @@ body.page-leaving {
 .card:nth-child(3) { --card-tilt: 2.4deg; top: 10%; left: clamp(24px, calc(50% + 102px), calc(100% - 244px)); animation-duration: 36s; animation-delay: -12s; }
 .card:nth-child(4) { --card-tilt: -1.7deg; bottom: 12%; left: clamp(24px, calc(50% - 280px), calc(100% - 244px)); animation-duration: 41s; animation-delay: -22s; }
 .card:nth-child(5) { --card-tilt: 1.2deg; bottom: 14%; left: clamp(24px, calc(50% + 78px), calc(100% - 244px)); animation-duration: 37s; animation-delay: -5s; }
-
-.board > .card:nth-of-type(2) { --card-tilt: -2.6deg; top: 12%; bottom: auto; left: clamp(24px, calc(50% - 330px), calc(100% - 244px)); animation-duration: 34s; animation-delay: -8s; }
-.board > .card:nth-of-type(3) { --card-tilt: 1.8deg; top: 36%; bottom: auto; left: clamp(24px, calc(50% - 108px), calc(100% - 244px)); animation-duration: 39s; animation-delay: -17s; }
-.board > .card:nth-of-type(4) { --card-tilt: 2.4deg; top: 10%; bottom: auto; left: clamp(24px, calc(50% + 102px), calc(100% - 244px)); animation-duration: 36s; animation-delay: -12s; }
-.board > .card:nth-of-type(5) { --card-tilt: -1.7deg; top: auto; bottom: 12%; left: clamp(24px, calc(50% - 280px), calc(100% - 244px)); animation-duration: 41s; animation-delay: -22s; }
-.board > .card:nth-of-type(6) { --card-tilt: 1.2deg; top: auto; bottom: 14%; left: clamp(24px, calc(50% + 78px), calc(100% - 244px)); animation-duration: 37s; animation-delay: -5s; }
 
 @keyframes page-enter { from { opacity: 0; transform: scale(1.012); filter: brightness(0.8); } to { opacity: 1; transform: scale(1); filter: brightness(1); } }
 @keyframes nav-pop { from { opacity: 0; transform: translate3d(0, -12px, 0) scale(0.985); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
@@ -220,6 +210,17 @@ body.page-leaving {
  background: rgba(216, 194, 138, 0.055);
 }
 
+.log-trigger-btn {
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.log-trigger-btn:hover {
+  background: rgba(216, 194, 138, 0.15);
+  border-color: #d8c28a;
+  color: #fff;
+}
+
 .case-layout {
  display: grid;
  grid-template-columns: minmax(0, 1fr) 320px;
@@ -276,6 +277,37 @@ body.page-leaving {
  padding-left: 18px;
  color: rgba(245, 245, 245, 0.72);
  line-height: 1.8;
+}
+
+.sidebar-log {
+ margin-top: 30px;
+}
+
+.sidebar-log h3 {
+ margin: 0 0 8px;
+ color: #9E4242;
+ font-family: "IBM Plex Sans", Inter, sans-serif;
+ font-size: 14px;
+ text-transform: uppercase;
+}
+
+.sidebar-log p {
+ font-size: 14px;
+}
+
+.sidebar-log button {
+ margin-top: 10px;
+ padding: 8px 16px;
+ color: #F5F5F5;
+ font-family: "IBM Plex Sans", Inter, sans-serif;
+ font-weight: 700;
+ background: transparent;
+ border: 1px solid #9E4242;
+ cursor: pointer;
+}
+
+.sidebar-log button:hover {
+ background: rgba(158, 66, 66, 0.15);
 }
 
 .timeline-board {
@@ -352,10 +384,15 @@ body.page-leaving {
  border: 1px solid transparent;
  border-radius: 2px;
  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+ perspective: 1000px;
 }
 
 .evidence-card:nth-child(even) {
  transform: rotate(1.2deg);
+}
+
+.card-content-wrapper {
+  transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .evidence-card h2 {
@@ -382,6 +419,7 @@ body.page-leaving {
  height: 13px;
  background: rgba(35, 35, 35, 0.78);
  transform: rotate(3deg);
+ transition: opacity 0.2s ease;
 }
 
 .evidence-card:hover {
@@ -390,6 +428,22 @@ body.page-leaving {
  box-shadow: 0 15px 35px rgba(158, 66, 66, 0.2), 0 5px 15px rgba(0,0,0,0.5);
  z-index: 10;
 }
+
+.evidence-card.clicked {
+  transform: scale(0.95) rotate(0deg);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+  border-color: #9E4242;
+}
+
+.evidence-card.clicked .card-content-wrapper {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.evidence-card.clicked::before {
+  opacity: 0;
+}
+
 
 /* RESEARCH MODALS (POP-UP DOSSIERS) */
 .evidence-modal {
@@ -403,7 +457,7 @@ body.page-leaving {
   padding: 20px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M8 8 L24 24 M24 8 L8 24' stroke='%239E4242' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") 16 16, pointer;
+  cursor: var(--close-cursor);
 }
 
 .evidence-modal.active {
@@ -425,6 +479,17 @@ body.page-leaving {
   cursor: default; 
 }
 
+.bib-modal-content {
+  border-top-color: #d8c28a;
+  background:
+   linear-gradient(145deg, #1a1a1a, #111),
+   repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 30px);
+}
+
+.bib-modal-content h2 {
+  color: #d8c28a;
+}
+
 .modal-close-btn {
   position: absolute;
   top: 20px;
@@ -441,6 +506,10 @@ body.page-leaving {
 
 .modal-close-btn:hover {
   color: #9E4242;
+}
+
+.bib-modal-content .modal-close-btn:hover {
+  color: #d8c28a;
 }
 
 .evidence-modal-content h2 {
@@ -516,9 +585,7 @@ body.page-leaving {
   border-radius: 1px;
 }
 
-/* =================================================== */
-/* ZIG-ZAG DOSSIER LAYOUT (Used in Exhibit F)          */
-/* =================================================== */
+/* ZIG-ZAG DOSSIER LAYOUT (Used in Exhibit F & J) */
 .dossier-f-content {
   max-width: 1080px; 
 }
@@ -533,14 +600,14 @@ body.page-leaving {
   display: flex;
   flex-direction: row;
   gap: 50px;
-  align-items: center; /* Vertically centers text with image */
+  align-items: center;
   z-index: 2;
   position: relative;
 }
 
 .dossier-f-row-reverse {
   flex-direction: row-reverse;
-  margin-top: -15px; /* Pulls the bottom row up slightly for a tighter fit */
+  margin-top: -15px; 
 }
 
 .dossier-f-copy {
@@ -600,10 +667,9 @@ body.page-leaving {
   transform: scale(1.012);
 }
 
-/* Updated Quote Alignment to lock perfectly underneath the right text column */
 .dossier-f-quote {
-  align-self: flex-end; /* Pushes to the right */
-  width: calc(100% - 490px); /* Exactly the width of the right column (100% minus image & gap) */
+  align-self: flex-end; 
+  width: calc(100% - 490px); 
   margin: 20px 0 20px auto; 
   box-sizing: border-box;
   padding: 16px 30px;
@@ -628,6 +694,42 @@ body.page-leaving {
   color: #9E4242;
   display: block;
   margin-bottom: 4px;
+}
+
+/* =================================================== */
+/* BOTTOM BIBLIOGRAPHY BUTTON (MOVED)                  */
+/* =================================================== */
+.bottom-action-row {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 60px auto; 
+  width: 100%;
+}
+
+.bottom-log-btn {
+  padding: 12px 24px;
+  font-size: 13px;
+  background: rgba(158, 66, 66, 0.08); 
+  border-color: rgba(158, 66, 66, 0.4);
+  color: #9E4242;
+}
+
+.bottom-log-btn:hover {
+  background: rgba(158, 66, 66, 0.2);
+  border-color: #9E4242;
+  color: #F5F5F5;
+}
+
+.evidence-modal-content p.bib-intro-text {
+  color: #9E4242;
+  font-family: 'IBM Plex Sans', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px dashed rgba(158, 66, 66, 0.3);
 }
 
 /* =================================================== */
@@ -699,22 +801,6 @@ body.page-leaving {
 }
 
 /* EVIDENCE LOGS (BIBLIOGRAPHY) */
-.evidence-logs {
-  max-width: 1120px;
-  margin: 0 auto 80px auto;
-  padding: 40px 32px;
-  border-top: 1px dashed rgba(245, 245, 245, 0.15);
-}
-
-.evidence-logs h2 {
-  color: #F5F5F5;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0 0 30px 0;
-}
-
 .log-container {
   display: flex;
   flex-direction: column;
@@ -733,7 +819,7 @@ body.page-leaving {
 
 .log-entry:hover {
   color: rgba(245, 245, 245, 0.9);
-  border-left-color: #9E4242;
+  border-left-color: #d8c28a;
 }
 
 .log-entry strong {
@@ -822,6 +908,7 @@ body.page-leaving {
 
 .management-page .management-feed {
  margin-top: 30px; 
+ margin-bottom: 86px;
  max-width: 1100px;
  margin-left: auto;
  margin-right: auto;
@@ -973,7 +1060,6 @@ body.page-leaving {
  pointer-events: none;
 }
 
-
 /* ========================= */
 /* ZOOM SYSTEM (ENHANCED) */
 /* ========================= */
@@ -986,7 +1072,7 @@ body.page-leaving {
  justify-content: center;
  align-items: center;
  z-index: 1000;
- cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M8 8 L24 24 M24 8 L8 24' stroke='%239E4242' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") 16 16, pointer;
+ cursor: var(--close-cursor);
  animation: zoom-in 0.2s ease-out;
 }
 
@@ -1111,7 +1197,7 @@ body.page-leaving {
 .return-archive {
   display: block;
   width: fit-content;
-  margin: 60px auto 40px auto;
+  margin: 0 auto 80px auto; 
   color: #9E4242;
   font-family: 'IBM Plex Sans', monospace;
   font-weight: bold;
@@ -1169,8 +1255,7 @@ body.page-leaving {
  .nav-subtitle { display: block; margin: 6px 0 0; }
  .home-title { padding: 34px 22px 0; }
  .board { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; height: auto; min-height: 0; padding: 32px 22px 70px; }
- .board-lines { display: none; }
- .card, .card:nth-child(1), .card:nth-child(2), .card:nth-child(3), .card:nth-child(4), .card:nth-child(5), .board > .card, .board > .card:nth-of-type(2), .board > .card:nth-of-type(3), .board > .card:nth-of-type(4), .board > .card:nth-of-type(5), .board > .card:nth-of-type(6) { position: relative; inset: auto; width: auto; min-height: 170px; }
+ .card, .card:nth-child(1), .card:nth-child(2), .card:nth-child(3), .card:nth-child(4), .card:nth-child(5) { position: relative; inset: auto; width: auto; min-height: 170px; }
  .case-layout, .evidence-wall, .verdict-grid { grid-template-columns: 1fr; }
  .evidence-card, .evidence-card:nth-child(even) { transform: none; }
  .carousel { gap: 0; }
@@ -1180,7 +1265,6 @@ body.page-leaving {
  .page-counter { bottom: -10px; right: 10px; }
  .personnel-file { position: relative; inset: auto; margin-top: 30px; transform: none; width: fit-content; }
  
- /* Make sure all layout types collapse to a single column on smaller screens */
  .dossier-split-layout, .dossier-split-reversed, .dossier-f-row, .dossier-f-row-reverse { flex-direction: column; gap: 24px; margin-top: 0; }
  .dossier-image-container, .dossier-f-photo { width: 100%; max-width: 500px; margin: 0 auto 20px auto; transform: none; height: auto; }
  .dossier-split-reversed .dossier-image-container { transform: none; }
@@ -1188,7 +1272,6 @@ body.page-leaving {
  .dossier-f-content { max-width: min(900px, 94vw); }
  .dossier-f-photo .dossier-img { max-height: none; }
 
- /* Reset quote layout on mobile */
  .dossier-f-quote {
    width: 100%;
    max-width: 100%;
