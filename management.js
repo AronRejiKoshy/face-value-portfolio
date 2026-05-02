@@ -116,3 +116,33 @@ document.addEventListener('keydown', (e) => {
    document.body.style.overflow = '';
  }
 });
+
+// =====================================
+// DEEP LINKING (HASH) LOGIC
+// =====================================
+document.addEventListener('DOMContentLoaded', () => {
+  // Check if the URL has a hash targeting the initial proposal
+  if (window.location.hash === '#initial-proposal') {
+    
+    // Slight delay to ensure the DOM is fully painted and transitions are ready
+    setTimeout(() => {
+      accordions.forEach(acc => {
+        const heading = acc.querySelector('h2');
+        
+        // Find the specific accordion by its text content
+        if (heading && heading.textContent.trim() === 'Initial Proposal') {
+          
+          // Open it if it isn't already open
+          if (!acc.classList.contains('active')) {
+            acc.click(); 
+          }
+          
+          // Scroll it smoothly into view so the user doesn't have to hunt for it
+          setTimeout(() => {
+            acc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 300);
+        }
+      });
+    }, 150);
+  }
+});
