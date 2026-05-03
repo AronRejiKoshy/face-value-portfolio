@@ -236,19 +236,15 @@ body.page-leaving {
 }
 
 /* ========================= */
-/* CASE FILE LAYOUT & SIDEBAR */
+/* CASE FILE LAYOUT */
 /* ========================= */
 
 .case-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px; 
-  gap: 20px; 
-  max-width: 1220px; 
+  max-width: 1120px; 
   margin: 0 auto 110px;
   padding: 0 32px;
 }
 
-.case-sidebar,
 .timeline-entry,
 .field-log article,
 .exhibit-frame,
@@ -262,13 +258,6 @@ body.page-leaving {
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
 }
 
-.case-sidebar {
-  align-self: start;
-  padding: 24px;
-  border-color: rgba(158, 66, 66, 0.28);
-}
-
-.case-sidebar h2,
 .timeline-entry h2,
 .field-log h2,
 .exhibit-frame h2,
@@ -281,51 +270,12 @@ body.page-leaving {
   text-transform: uppercase;
 }
 
-.case-sidebar p,
 .timeline-entry p,
 .field-log p,
 .exhibit-frame p,
 .verdict-grid p {
   color: rgba(245, 245, 245, 0.68);
   line-height: 1.65;
-}
-
-.case-sidebar ul {
-  margin: 20px 0 0;
-  padding-left: 18px;
-  color: rgba(245, 245, 245, 0.72);
-  line-height: 1.8;
-}
-
-.sidebar-log {
-  margin-top: 30px;
-}
-
-.sidebar-log h3 {
-  margin: 0 0 8px;
-  color: #9E4242;
-  font-family: "IBM Plex Sans", Inter, sans-serif;
-  font-size: 14px;
-  text-transform: uppercase;
-}
-
-.sidebar-log p {
-  font-size: 14px;
-}
-
-.sidebar-log button {
-  margin-top: 10px;
-  padding: 8px 16px;
-  color: #F5F5F5;
-  font-family: "IBM Plex Sans", Inter, sans-serif;
-  font-weight: 700;
-  background: transparent;
-  border: 1px solid #9E4242;
-  cursor: pointer;
-}
-
-.sidebar-log button:hover {
-  background: rgba(158, 66, 66, 0.15);
 }
 
 /* ========================= */
@@ -337,7 +287,6 @@ body.page-leaving {
   display: grid;
   gap: 30px; 
   padding-left: 32px;
-  max-width: 900px; 
 }
 
 .timeline-board::before {
@@ -1428,4 +1377,95 @@ body.page-leaving {
   .research-zoom-overlay { padding: 18px; }
   #researchZoomImage { max-width: 94vw; max-height: 76vh; }
   .research-zoom-close { top: 14px; right: 18px; }
+}
+
+/* ========================= */
+/* TRANSCRIPT LOG STYLES (NEW) */
+/* ========================= */
+
+.transcript-log {
+  margin-top: 20px;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(245, 245, 245, 0.08);
+  border-left: 3px solid rgba(216, 194, 138, 0.6);
+  border-radius: 4px;
+  font-family: 'IBM Plex Sans', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.transcript-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed rgba(245, 245, 245, 0.15);
+}
+
+.transcript-header span {
+  color: #9E4242;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.transcript-meta {
+  color: rgba(216, 194, 138, 0.7);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 16px 0;
+  letter-spacing: 0.05em;
+}
+
+.transcript-line {
+  margin-bottom: 16px;
+}
+
+.transcript-line .speaker-label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.transcript-line p {
+  margin: 0;
+  color: rgba(245, 245, 245, 0.85);
+}
+
+/* Differentiating the speakers */
+.transcript-line.supervisor .speaker-label {
+  color: rgba(245, 245, 245, 0.5);
+}
+
+.transcript-line.investigator {
+  padding-left: 20px;
+}
+
+.transcript-line.investigator .speaker-label {
+  color: #d8c28a;
+}
+
+/* Investigator's Retrospective Notes */
+.investigator-note {
+  margin: 24px 0 24px 20px;
+  padding: 16px 20px;
+  background: rgba(158, 66, 66, 0.08);
+  border: 1px dashed rgba(158, 66, 66, 0.4);
+  border-radius: 2px;
+}
+
+.investigator-note strong {
+  display: block;
+  color: #9E4242;
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+.investigator-note p {
+  margin: 0;
+  color: #d8c28a;
+  font-style: italic;
 }

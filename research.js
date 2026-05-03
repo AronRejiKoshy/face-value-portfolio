@@ -93,4 +93,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Deep link support for modals (Auto-opens modal if linked from another page)
+  if (window.location.hash) {
+    const hashModal = document.querySelector(window.location.hash);
+    if (hashModal && hashModal.classList.contains('evidence-modal')) {
+      setTimeout(() => {
+        hashModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }, 150);
+    }
+  }
 });
