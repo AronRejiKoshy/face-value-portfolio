@@ -1,64 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <title>Project in Practice | Face Value</title>
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Project in Practice | Face Value</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="case-page practice-page">
 
 <nav class="nav">
- <div class="logo">FACE VALUE <span class="nav-subtitle">/ FILE 04: PROJECT IN PRACTICE</span></div>
- <div class="nav-links">
-   <a href="progression.html">Previous File</a>
-   <a href="presentation.html">Next File</a>
- </div>
+  <div class="logo">FACE VALUE <span class="nav-subtitle">/ FILE 04: PROJECT IN PRACTICE</span></div>
+  <div class="nav-links">
+    <a href="progression.html">Previous File</a>
+    <a href="presentation.html">Next File</a>
+  </div>
 </nav>
 
 <header class="case-hero">
- <p class="case-kicker">Field Notes / Making and Testing</p>
- <h1>Project in Practice</h1>
- <p>The practical record of what was made, tested, revised, and learned while the project moved from idea to outcome.</p>
- <div class="case-meta-row">
-   <span>Status: Under Examination</span>
-   <span>Format: Field Log</span>
-   <span>Use: Show process</span>
- </div>
+  <p class="case-kicker">System Architecture / Specifications</p>
+  <h1>Project in Practice</h1>
+  <p>The operational blueprint of the investigation. This secure terminal logs the mechanical frameworks, physical components, visual identity systems, and technical toolkits required to execute the simulation.</p>
+  <div class="case-meta-row">
+    <span>Status: Systems Active</span>
+    <span>Format: Terminal Interface</span>
+    <span>Use: Technical Reference</span>
+  </div>
 </header>
 
-<main class="case-layout">
- <section class="field-log">
-   <article>
-     <span>Observation 01</span>
-     <h2>Material Tests</h2>
-     <p>Document experiments with format, layout, interaction, imagery, print, motion, or any other material choices that shaped the work.</p>
-   </article>
+<main class="dashboard-layout">
+  
+  <!-- TERMINAL NAVIGATION SIDEBAR -->
+  <aside class="dashboard-menu">
+    <h2 class="menu-title">Select Database</h2>
+    <button class="dashboard-btn active" data-tab="tab-mechanics">01 // Game Mechanics</button>
+    <button class="dashboard-btn" data-tab="tab-physical">02 // Physical Apparatus</button>
+    <button class="dashboard-btn" data-tab="tab-branding">03 // Visual Identity</button>
+    <button class="dashboard-btn" data-tab="tab-html">04 // Protocol: Web Dev</button>
+    <button class="dashboard-btn" data-tab="tab-figma">05 // Protocol: Figma</button>
+    <button class="dashboard-btn" data-tab="tab-photoshop">06 // Protocol: Photoshop</button>
+    <button class="dashboard-btn" data-tab="tab-premiere">07 // Protocol: Premiere</button>
+  </aside>
 
-   <article>
-     <span>Observation 02</span>
-     <h2>User or Audience Testing</h2>
-     <p>Capture how people responded to the project and what those responses revealed about clarity, tone, and impact.</p>
-   </article>
+  <!-- TERMINAL DISPLAY AREA -->
+  <section class="dashboard-display">
+    
+    <!-- TAB 1: MECHANICS -->
+    <div class="tab-pane active" id="tab-mechanics">
+      <div class="pane-header">
+        <span class="evidence-code">ARCHIVE NO. 441A</span>
+        <h2>System Overview & Mechanics</h2>
+      </div>
+      
+      <div class="spec-block">
+        <h3>Concept Directive</h3>
+        <p>Face Value is a social deduction board game designed to explore how players construct suspicion from limited, brand-coded information. Players are presented with a crime case and a set of suspects. Through interaction, discussion, and evidence collection, they must determine who is responsible. The system is engineered to reveal how narrative and perception override factual reasoning.</p>
+      </div>
 
-   <article>
-     <span>Observation 03</span>
-     <h2>Iteration Evidence</h2>
-     <p>Show before-and-after changes so the development feels visible, not just described after the fact.</p>
-   </article>
- </section>
+      <div class="spec-block">
+        <h3>Player Role Parameters</h3>
+        <p>Each player assumes the identity of a suspect connected to the victim. Players are not assigned as the murderer. Instead, they participate in the process of investigation, discussion, and accusation. Their role is to interpret evidence, form narratives, and influence collective judgment.</p>
+      </div>
 
- <aside class="case-sidebar darkroom-panel">
-   <h2>Pending Evidence</h2>
-   <p>This page could hold process photos, screenshots, annotated drafts, feedback notes, test outcomes, or short reflective entries.</p>
-   <div class="status-strip">Awaiting Upload</div>
- </aside>
+      <div class="spec-block">
+        <h3>Operational Flow</h3>
+        <ol class="tech-list">
+          <li><strong>Setup:</strong> Players are assigned character profiles and initial context is given.</li>
+          <li><strong>Investigation:</strong> Players move between locations, collecting evidence and are allowed to use character abilities.</li>
+          <li><strong>Discussion:</strong> Players share interpretations and form suspicions based on available information.</li>
+          <li><strong>Judgment:</strong> Players return to a central location and vote on who they believe is responsible.</li>
+          <li><strong>Reveal:</strong> The true cause of the crime and outcome is revealed.</li>
+        </ol>
+      </div>
+
+      <div class="spec-block">
+        <h3>Core Mechanic Vulnerability</h3>
+        <p>The system is structured to prioritize interpretation over objective truth. Evidence is distributed in a way that requires cross-referencing, yet players are more likely to form conclusions based on character perception and narrative coherence. This creates a space where branding, lifestyle cues, and identity markers influence judgment more strongly than factual evidence.</p>
+      </div>
+    </div>
+
+    <!-- TAB 2: PHYSICAL -->
+    <div class="tab-pane" id="tab-physical">
+      <div class="pane-header">
+        <span class="evidence-code">ARCHIVE NO. 441B</span>
+        <h2>Physical Apparatus</h2>
+      </div>
+
+      <div class="spec-block">
+        <h3>Spatial Layout</h3>
+        <ul class="tech-list">
+          <li><strong>Location Tiles:</strong> 5-6 tiles representing physical spaces (Example: Gym, café, apartment, university space, shopping mall).</li>
+          <li><strong>Central Space:</strong> "Court" or Discussion Area (can be adapted based on the specific case parameters).</li>
+        </ul>
+      </div>
+
+      <div class="spec-grid">
+        <div class="grid-item">
+          <h3>Voting System</h3>
+          <p><strong>Public Voting:</strong> Tokens placed on suspects.<br>
+          <strong>Private Recording Sheet:</strong> Questions/prompts to guide the player (utilised as technical depth for data extraction).</p>
+        </div>
+        <div class="grid-item">
+          <h3>Movement System</h3>
+          <p>Each round, the player chooses where they want to go. They can use their "ability" to draw relevant evidence based on the location tile.</p>
+        </div>
+      </div>
+
+      <div class="spec-grid">
+        <div class="grid-item">
+          <h3>Evidence Cards</h3>
+          <p>Object cards. Ideally, these are the branded objects affiliated with the victim, the suspect, or other players. Content cards provide more information about location or timeline hints.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Character Cards</h3>
+          <p>Profiles containing baseline data: Portrait, Name, Occupation, Lifestyle markers, Traits, Flaws, and unique "Abilities". Designed to trigger instant profiling.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: BRANDING -->
+    <div class="tab-pane" id="tab-branding">
+      <div class="pane-header">
+        <span class="evidence-code">ARCHIVE NO. 441C</span>
+        <h2>Visual Identity Hierarchy</h2>
+      </div>
+
+      <div class="branding-section">
+        <h3>Typography Configuration</h3>
+        
+        <!-- Stacked Primary Font -->
+        <div style="margin-bottom: 40px;">
+          <span class="type-label">PRIMARY FONT FAMILY</span>
+          <div class="type-spec terminal-spec" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+            <div class="type-content">
+              <strong>Helvetica Neue</strong>
+              <p class="charset">a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9</p>
+              <small>Utilised across varying weights: 25 Ultra Light, 35 Thin, 45 Light, 55 Roman, 65 Medium, 75 Bold, 85 Heavy, 95 Black.</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stacked Secondary Fonts -->
+        <div>
+          <span class="type-label">SECONDARY FONTS</span>
+          <div class="type-spec terminal-spec" style="font-family: 'IBM Plex Sans', sans-serif; margin-bottom: 20px;">
+            <div class="type-content">
+              <strong>IBM Plex Sans</strong>
+              <p class="charset">a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9</p>
+            </div>
+          </div>
+
+          <div class="type-spec terminal-spec" style="font-family: 'Inter', sans-serif;">
+            <div class="type-content">
+              <strong>Inter</strong>
+              <p class="charset">a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="branding-section" style="margin-top: 50px;">
+        <h3>Colour System</h3>
+        <div class="color-grid">
+          <div class="color-swatch-container">
+            <div class="color-swatch" style="background-color: #FFFFFF;"></div>
+            <span>#FFFFFF / PRIMARY</span>
+          </div>
+          <div class="color-swatch-container">
+            <div class="color-swatch" style="background-color: #000000;"></div>
+            <span>#000000 / PRIMARY</span>
+          </div>
+          <div class="color-swatch-container">
+            <div class="color-swatch" style="background-color: #8A8A8A;"></div>
+            <span>#8A8A8A / SECONDARY</span>
+          </div>
+          <div class="color-swatch-container">
+            <div class="color-swatch" style="background-color: #9E4242;"></div>
+            <span>#9E4242 / SECONDARY</span>
+          </div>
+          <div class="color-swatch-container">
+            <div class="color-swatch" style="background-color: #d8c28a;"></div>
+            <span>#D8C28A / SECONDARY</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: HTML/CSS/JS -->
+    <div class="tab-pane" id="tab-html">
+      <div class="pane-header">
+        <span class="evidence-code">ARCHIVE NO. 441D</span>
+        <h2>Protocol: HTML / CSS / JS</h2>
+      </div>
+      
+      <div class="spec-block">
+        <h3>Application: Digital Archiving & Interface Development</h3>
+        <p>To effectively present this project, standard PDF formats were insufficient. The investigation required building a bespoke, interactive digital dossier from the ground up, demanding practical execution of core web technologies to simulate a secure, classified terminal.</p>
+      </div>
+
+      <div class="spec-grid">
+        <div class="grid-item">
+          <h3>Structural Logic (HTML)</h3>
+          <p>Engineered semantic document frameworks. Mastered the use of data attributes to link dynamic elements, creating a scalable foundation capable of housing complex evidence galleries and expandable timelines.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Spatial & Visual Hierarchy (CSS)</h3>
+          <p>Executed advanced CSS Grid and Flexbox models for precise layout alignment. Developed custom animations, interactive hover states, overlay layering, and ensured robust responsive breakpoints for cross-device legibility.</p>
+        </div>
+        <div class="grid-item">
+          <h3>System Functionality (JavaScript)</h3>
+          <p>Authored dynamic DOM manipulation scripts. This operational logic enables the tabbed terminal interfaces, decryptable text logs, modal pop-ups, and the custom image-zoom overlay systems utilized throughout the archive.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: FIGMA -->
+    <div class="tab-pane" id="tab-figma">
+      <div class="pane-header">
+        <span class="evidence-code">ARCHIVE NO. 441E</span>
+        <h2>Protocol: Figma</h2>
+      </div>
+      
+      <div class="spec-block">
+        <h3>Application: System Architecture & Wireframing</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+
+      <div class="spec-grid">
+        <div class="grid-item">
+          <h3>Component Standardization</h3>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Digital Prototyping</h3>
+          <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 6: PHOTOSHOP -->
+    <div class="tab-pane" id="tab-photoshop">
+      <div class="pane-header">
+        <span class="evidence-code">ARCHIVE NO. 441F</span>
+        <h2>Protocol: Adobe Photoshop</h2>
+      </div>
+      
+      <div class="spec-block">
+        <h3>Application: Asset Generation & Manipulation</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate eros ut purus consequat, at rhoncus lorem efficitur. Phasellus imperdiet libero non tellus volutpat, a aliquet erat hendrerit. Etiam sed rhoncus est.</p>
+      </div>
+
+      <div class="spec-grid">
+        <div class="grid-item">
+          <h3>Evidence Compositing</h3>
+          <p>Maecenas tristique, mi ullamcorper volutpat varius, sem magna tempus arcu, in dictum leo sem sit amet lectus. Morbi vehicula bibendum est, vel tristique lectus pulvinar vel. In hac habitasse platea dictumst.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Subject Profiling</h3>
+          <p>Aliquam erat volutpat. Nam nec neque at diam ullamcorper consequat in at ante. Sed euismod dui a ligula lobortis laoreet. Praesent aliquet libero nisl, quis pulvinar eros convallis nec. Nulla ullamcorper lorem eu cursus.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 7: PREMIERE PRO -->
+    <div class="tab-pane" id="tab-premiere">
+      <div class="pane-header">
+        <span class="evidence-code">ARCHIVE NO. 441G</span>
+        <h2>Protocol: Adobe Premiere Pro</h2>
+      </div>
+      
+      <div class="spec-block">
+        <h3>Application: Surveillance & Briefing Construction</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a tellus nec elit blandit pulvinar et sed diam. Cras imperdiet, dolor sed vehicula mollis, sem urna aliquam massa, condimentum vestibulum enim mi quis nisi.</p>
+      </div>
+
+      <div class="spec-grid">
+        <div class="grid-item">
+          <h3>Narrative Sequencing</h3>
+          <p>Vestibulum fringilla pellentesque est, id laoreet nisl fermentum eget. Donec pretium lacus neque, ut scelerisque est interdum eu. Nunc condimentum nunc non varius auctor. Suspendisse potenti.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Behavioural Documentation</h3>
+          <p>Sed vel varius sem. Ut vulputate sapien nisi, vel dictum odio aliquet id. Nullam aliquet convallis felis id faucibus. Sed eleifend congue massa vel viverra. Vivamus cursus finibus erat, at facilisis sem condimentum rutrum.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
 </main>
 
 <a href="index.html" class="return-archive">[ RETURN TO ARCHIVE ]</a>
+
+<!-- Custom Script for the Terminal Dashboard -->
+<script src="practice.js"></script>
 
 </body>
 </html>
