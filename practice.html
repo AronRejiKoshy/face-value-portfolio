@@ -9,6 +9,29 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
+
+  <!-- INLINE STYLES FOR THE WEB DEV GRID -->
+  <style>
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .framework-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .framework-card img {
+      margin-top: auto; /* Pushes the image to the bottom so they align nicely */
+    }
+    @media (max-width: 800px) {
+      .framework-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body class="case-page practice-page">
@@ -132,48 +155,55 @@
       <div class="branding-section">
         <h3>Typography Configuration</h3>
         
-        <!-- Stacked Primary Font -->
-        <div style="margin-bottom: 40px;">
-          <span class="type-label">PRIMARY FONT FAMILY</span>
-          <div class="type-spec terminal-spec" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+        <!-- Primary Font: Full Width -->
+        <div style="margin-bottom: 30px;">
+          <span class="type-label">PRIMARY FONT / DISPLAY & HEADINGS</span>
+          <div class="type-spec terminal-spec" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;">
             <div class="type-content">
-              <strong>Helvetica Neue</strong>
-              <p class="charset">a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9</p>
-              <small>Utilised across varying weights: 25 Ultra Light, 35 Thin, 45 Light, 55 Roman, 65 Medium, 75 Bold, 85 Heavy, 95 Black.</small>
+              <strong style="font-size: 32px; letter-spacing: 0.02em;">Helvetica Neue</strong>
+              <p class="charset" style="letter-spacing: 0.25em !important; font-size: 18px; text-transform: none !important; margin: 16px 0;">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9</p>
+              <p style="font-size: 16px; color: #d8c28a; margin: 0 0 16px 0; letter-spacing: 0.05em; font-weight: 700;">EX: FACE VALUE / SYSTEM ARCHITECTURE</p>
+              <small style="font-family: 'Inter', sans-serif;">Utilised across varying weights: 25 Ultra Light, 35 Thin, 45 Light, 55 Roman, 65 Medium, 75 Bold, 85 Heavy, 95 Black.</small>
             </div>
           </div>
         </div>
 
-        <!-- Stacked Secondary Fonts -->
-        <div>
-          <span class="type-label">SECONDARY FONTS</span>
-          <div class="type-spec terminal-spec" style="font-family: 'IBM Plex Sans', sans-serif; margin-bottom: 20px;">
+        <!-- Secondary Fonts: Side-by-Side Grid -->
+        <span class="type-label" style="margin-bottom: 10px;">SECONDARY FONTS / DATA & UI</span>
+        <div class="spec-grid" style="margin-bottom: 0; gap: 20px;">
+          
+          <!-- IBM Plex Sans -->
+          <div class="type-spec terminal-spec" style="font-family: 'IBM Plex Sans', sans-serif !important; padding: 25px;">
             <div class="type-content">
-              <strong>IBM Plex Sans</strong>
-              <p class="charset">a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9</p>
+              <strong style="font-size: 22px;">IBM Plex Sans</strong>
+              <p class="charset" style="font-size: 14px; letter-spacing: 0.15em !important; text-transform: none !important; margin: 16px 0;">A B C D E F G H I J K L M<br>a b c d e f g h i j k l m<br>0 1 2 3 4 5 6 7 8 9</p>
+              <p style="font-size: 11px; color: #d8c28a; margin: 0; letter-spacing: 0.1em; text-transform: uppercase;">EX: SYSTEM_LOG: 441-A // TRACKING CONFIGURED</p>
             </div>
           </div>
 
-          <div class="type-spec terminal-spec" style="font-family: 'Inter', sans-serif;">
+          <!-- Inter -->
+          <div class="type-spec terminal-spec" style="font-family: 'Inter', sans-serif !important; padding: 25px;">
             <div class="type-content">
-              <strong>Inter</strong>
-              <p class="charset">a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9</p>
+              <strong style="font-size: 22px;">Inter</strong>
+              <p class="charset" style="font-size: 14px; letter-spacing: 0.15em !important; text-transform: none !important; margin: 16px 0;">A B C D E F G H I J K L M<br>a b c d e f g h i j k l m<br>0 1 2 3 4 5 6 7 8 9</p>
+              <p style="font-size: 13px; color: #d8c28a; margin: 0; line-height: 1.4;">EX: The investigation required a bespoke interactive dossier to act as the primary interface.</p>
             </div>
           </div>
+
         </div>
 
       </div>
 
-      <div class="branding-section" style="margin-top: 50px;">
+      <div class="branding-section" style="margin-top: 40px;">
         <h3>Colour System</h3>
         <div class="color-grid">
           <div class="color-swatch-container">
-            <div class="color-swatch" style="background-color: #FFFFFF;"></div>
-            <span>#FFFFFF / PRIMARY</span>
+            <div class="color-swatch" style="background-color: #F5F5F5;"></div>
+            <span>#F5F5F5 / PRIMARY</span>
           </div>
           <div class="color-swatch-container">
-            <div class="color-swatch" style="background-color: #000000;"></div>
-            <span>#000000 / PRIMARY</span>
+            <div class="color-swatch" style="background-color: #111111;"></div>
+            <span>#111111 / PRIMARY</span>
           </div>
           <div class="color-swatch-container">
             <div class="color-swatch" style="background-color: #8A8A8A;"></div>
@@ -191,30 +221,66 @@
       </div>
     </div>
 
-    <!-- TAB 4: HTML/CSS/JS -->
+    <!-- TAB 4: HTML/CSS/JS (UPDATED 2x2 GRID & COPY) -->
     <div class="tab-pane" id="tab-html">
       <div class="pane-header">
         <span class="evidence-code">ARCHIVE NO. 441D</span>
-        <h2>Protocol: HTML / CSS / JS</h2>
+        <h2>Protocol: Web Development</h2>
       </div>
       
       <div class="spec-block">
-        <h3>Application: Digital Archiving & Interface Development</h3>
-        <p>To effectively present this project, standard PDF formats were insufficient. The investigation required building a bespoke, interactive digital dossier from the ground up, demanding practical execution of core web technologies to simulate a secure, classified terminal.</p>
+        <h3>Application: Custom Digital Architecture</h3>
+        <p>To effectively present this project, standard PDF formats or drag-and-drop website builders were entirely insufficient. The investigation required building a custom digital portfolio from the ground up to simulate a secure, classified terminal. Over a highly condensed 2-3 week period, I had to rapidly learn the fundamentals of web coding (HTML, CSS, and JavaScript) to translate my conceptual designs into a functional, interactive website.</p>
+        
+        <div class="investigator-note" style="margin-top: 24px; margin-bottom: 0; margin-left: 0;">
+          <strong>[ INVESTIGATOR LOG: TECHNICAL ASSISTANCE ]</strong>
+          <p>It should be noted for the official record that this rapid upskilling was heavily supplemented by 'technical associates' (my Computer Science flatmates). Their expertise was frequently subpoenaed for initial setup, interpreting error codes, and late-night debugging interventions when the system inevitably broke.</p>
+        </div>
+
+        <p style="margin-top: 24px;">To accelerate this process, I also deployed <strong>Cursor</strong>, an AI-powered code editor. For someone without a formal computer science background, this functioned like a highly advanced investigative assistant. It helped predict formatting structures, write foundational code blocks, and translate complex error logs into plain English. While it didn't build the site for me, it dramatically reduced the friction of learning syntax, allowing me to focus on the overarching system architecture and visual design rather than getting trapped by a missing semicolon.</p>
       </div>
 
-      <div class="spec-grid">
-        <div class="grid-item">
-          <h3>Structural Logic (HTML)</h3>
-          <p>Engineered semantic document frameworks. Mastered the use of data attributes to link dynamic elements, creating a scalable foundation capable of housing complex evidence galleries and expandable timelines.</p>
-        </div>
-        <div class="grid-item">
-          <h3>Spatial & Visual Hierarchy (CSS)</h3>
-          <p>Executed advanced CSS Grid and Flexbox models for precise layout alignment. Developed custom animations, interactive hover states, overlay layering, and ensured robust responsive breakpoints for cross-device legibility.</p>
-        </div>
-        <div class="grid-item">
-          <h3>System Functionality (JavaScript)</h3>
-          <p>Authored dynamic DOM manipulation scripts. This operational logic enables the tabbed terminal interfaces, decryptable text logs, modal pop-ups, and the custom image-zoom overlay systems utilized throughout the archive.</p>
+      <div class="spec-block" style="margin-top: 40px;">
+        <h3>Operational Logging (GitHub)</h3>
+        <p>Given the rapid trial-and-error nature of learning to code, maintaining a constant backup of the operation was paramount. All site updates were continuously logged and saved through GitHub. While the tracking notes (commits) reflect the slightly chaotic reality of building a site from scratch, the repository acts as an honest, chronological evidence log of the platform's evolution.</p>
+        <img src="assets/github-commits.png" alt="GitHub Commits Log" class="dossier-img research-zoomable" style="margin-top: 20px; border: 1px solid rgba(245,245,245,0.1); border-radius: 4px;" data-caption="Operational Evidence Log: Tracking the website development progress on GitHub.">
+      </div>
+
+      <!-- THE WEB FRAMEWORK 2x2 GRID -->
+      <div style="margin-top: 40px;">
+        <h3>The Web Framework</h3>
+        <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px;">Building the terminal required juggling three different coding languages simultaneously, each handling a specific part of the operation. I had to learn how they interact to stop the archive from collapsing.</p>
+
+        <div class="framework-grid">
+
+          <!-- Card 1 (HTML) -->
+          <article class="framework-card grid-item">
+            <h4 style="color: #F5F5F5; margin-top:0; margin-bottom: 10px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase;">HTML <span style="color: #9E4242;">// THE FOUNDATION</span></h4>
+            <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px;">This is the digital filing cabinet. HTML provides the structural 'bones' of the site. I had to learn how to organize the content so the browser actually understands what is a heading, what is a button, and what is classified text. Without this, the archive would just be an unreadable pile of data.</p>
+            <img src="assets/framework_html_snippet.png" alt="HTML Code Snippet" class="dossier-img research-zoomable" style="margin-top: 15px; border: 1px solid rgba(245,245,245,0.1);" data-caption="Structuring the digital filing cabinet.">
+          </article>
+
+          <!-- Card 2 (CSS) -->
+          <article class="framework-card grid-item">
+            <h4 style="color: #F5F5F5; margin-top:0; margin-bottom: 10px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase;">CSS <span style="color: #9E4242;">// THE PAINT</span></h4>
+            <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px;">Translating the visual identity into code. This is what makes the interface look like a redacted surveillance terminal rather than a boring Word document. I had to learn how to force grids, spacing, and colours to behave, frequently calling my 'associates' when the layouts inexplicably broke.</p>
+            <img src="assets/framework_css_snippet.png" alt="CSS Code Snippet" class="dossier-img research-zoomable" style="margin-top: 15px; border: 1px solid rgba(245,245,245,0.1);" data-caption="Refining the visual layout and applying the identity.">
+          </article>
+
+          <!-- Card 3 (JS) -->
+          <article class="framework-card grid-item">
+            <h4 style="color: #F5F5F5; margin-top:0; margin-bottom: 10px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase;">JS <span style="color: #9E4242;">// THE ELECTRICITY</span></h4>
+            <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px;">Adding the interactive behaviour. JavaScript is the logic that brings the terminal to life, allowing you to click between tabs, 'decrypt' logs, and open evidence pop-ups. It required the most trial and error (and the most panicked emergency calls) to get right without breaking everything else.</p>
+            <img src="assets/framework_js_snippet.png" alt="JavaScript Code Snippet" class="dossier-img research-zoomable" style="margin-top: 15px; border: 1px solid rgba(245,245,245,0.1);" data-caption="Wiring the interactive logic for the terminal buttons.">
+          </article>
+
+          <!-- Card 4 (Iterations) -->
+          <article class="framework-card grid-item">
+            <h4 style="color: #F5F5F5; margin-top:0; margin-bottom: 10px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase;">THE HUB <span style="color: #9E4242;">// SYSTEM NAVIGATION</span></h4>
+            <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px;">The culmination of the web development process. An early iteration of the central evidence board that ties the entire digital archive together, utilising precise CSS positioning to create an immersive, tactile navigation system for the user.</p>
+            <img src="assets/framework_ui_evolution.png" alt="The central navigation hub" class="dossier-img research-zoomable" style="margin-top: 15px; border: 1px solid rgba(245,245,245,0.1);" data-caption="Early interactive navigation architecture.">
+          </article>
+
         </div>
       </div>
     </div>
@@ -295,6 +361,13 @@
 </main>
 
 <a href="index.html" class="return-archive">[ RETURN TO ARCHIVE ]</a>
+
+<!-- THE ZOOM OVERLAY (Added so screenshots can be clicked and zoomed) -->
+<div class="research-zoom-overlay" id="researchZoomOverlay" aria-hidden="true">
+  <button class="research-zoom-close" type="button" aria-label="Close image zoom">&times;</button>
+  <img id="researchZoomImage" alt="">
+  <p id="researchZoomCaption"></p>
+</div>
 
 <!-- Custom Script for the Terminal Dashboard -->
 <script src="practice.js"></script>
