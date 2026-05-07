@@ -221,7 +221,7 @@ body.page-leaving {
 }
 .case-summary { max-width: 620px; margin: 18px auto 0; color: rgba(245, 245, 245, 0.72); font-size: 15px; font-weight: 400; line-height: 1.6; }
 
-/* NEW SYMMETRICAL RESPONSIVE BOARD LAYOUT */
+/* SYMMETRICAL RESPONSIVE BOARD LAYOUT */
 .board { 
   display: flex;
   flex-wrap: wrap;
@@ -245,9 +245,9 @@ body.page-leaving {
   --float-x: 0px; 
   --float-y: 0px; 
   --float-rotate: 0deg; 
-  position: relative; /* Fixed absolute overlapping */
+  position: relative; 
   z-index: 1; 
-  width: 300px; /* Standardised symmetrical width */
+  width: 300px; 
   flex: 0 1 auto;
   padding: 24px 24px 32px; 
   background: #1a1a1a; 
@@ -280,7 +280,6 @@ body.page-leaving {
 .board:has(.card:hover) .card:not(:hover) { opacity: 0.42; filter: saturate(0.72) contrast(0.88) blur(0.45px); }
 .board:has(.card.is-transitioning) .card:not(.is-transitioning) { opacity: 0.22; filter: saturate(0.6) contrast(0.82) blur(0.8px); }
 
-/* Unified Subtile Card Tilts */
 .card:nth-child(1) { --card-tilt: -1.6deg; animation-duration: 34s; animation-delay: -8s; }
 .card:nth-child(2) { --card-tilt: 1.2deg; animation-duration: 39s; animation-delay: -17s; }
 .card:nth-child(3) { --card-tilt: -0.8deg; animation-duration: 36s; animation-delay: -12s; }
@@ -1450,6 +1449,7 @@ body.page-leaving {
   border-radius: 4px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   z-index: 10;
+  overflow: hidden;
 }
 
 .id-details h2 {
@@ -1525,28 +1525,28 @@ body.page-leaving {
 /* ========================= */
 
 .clipboard-toast {
-  position: fixed;
-  bottom: -100px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute;
+  bottom: -50px;
+  right: 20px; /* Anchors the toast to the right side of the empty space */
   background: rgba(158, 66, 66, 0.95);
   color: #F5F5F5;
   font-family: 'IBM Plex Sans', monospace;
   font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.15em;
-  padding: 12px 24px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 10px 16px;
   border: 1px solid #9E4242;
   border-radius: 2px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
   z-index: 2000;
   opacity: 0;
-  transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  transition: bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
   pointer-events: none;
+  white-space: nowrap;
 }
 
 .clipboard-toast.show {
-  bottom: 130px; /* Pushes the pop-up above the Lead Investigator badge */
+  bottom: 16px; /* Aligns perfectly with the ID card's bottom padding */
   opacity: 1;
 }
 
