@@ -181,10 +181,55 @@ body.page-leaving {
 .nav a { margin-left: 20px; text-decoration: none; color: #8A8A8A; transition: color 0.3s ease; }
 .nav a:hover { color: #F5F5F5; }
 
-/* Restored Clean Title Block */
+/* Restored Clean Title Block With Flexbox for the Eye */
 .home-title { max-width: 1180px; margin: 0 auto; padding: 42px 40px 10px; text-align: center; }
-.home-title h1 { margin: 0; font-size: clamp(48px, 8vw, 96px); font-weight: 800; line-height: 0.95; letter-spacing: 0.08em; word-spacing: normal; text-shadow: 0 18px 80px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.08); animation: title-settle 820ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both; }
-.case-kicker { margin: 0 0 12px; color: #c0a466; font-family: "IBM Plex Sans", Inter, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+.home-title h1 { 
+  margin: 0; 
+  font-size: clamp(48px, 8vw, 96px); 
+  font-weight: 800; 
+  line-height: 0.95; 
+  letter-spacing: 0.08em; 
+  word-spacing: normal; 
+  text-shadow: 0 18px 80px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.08); 
+  animation: title-settle 820ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both; 
+  
+  /* Flexbox alignment to force the eye into the absolute dead center */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(15px, 3vw, 30px);
+}
+
+/* Force the text on either side of the eye to take up equal space */
+.home-title h1 span {
+  flex: 1;
+}
+
+.home-title h1 span:first-child {
+  text-align: right;
+}
+
+.home-title h1 span:last-child {
+  text-align: left;
+}
+
+.title-eye {
+  height: clamp(50px, 8.5vw, 100px); 
+  width: auto;
+  filter: invert(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+  transform: translateY(-5px); 
+}
+
+.case-kicker { 
+  margin: 0 0 12px; 
+  color: #c0a466; 
+  font-family: "IBM Plex Sans", Inter, sans-serif; 
+  font-size: 12px; 
+  font-weight: 700; 
+  letter-spacing: 0.18em; 
+  text-transform: uppercase; 
+  text-indent: 0.18em; /* Optically corrects the centering offset caused by letter-spacing */
+}
 .case-summary { max-width: 620px; margin: 18px auto 0; color: rgba(245, 245, 245, 0.72); font-size: 15px; font-weight: 400; line-height: 1.6; }
 
 .board { flex: 1 1 auto; position: relative; max-width: 1120px; width: 100%; margin: 0 auto; padding: 0 34px; box-sizing: border-box; }
@@ -1896,6 +1941,7 @@ body.page-leaving {
   .research-zoom-overlay { padding: 18px; }
   #researchZoomImage { max-width: 94vw; max-height: 76vh; }
   .research-zoom-close { top: 14px; right: 18px; }
+  .title-eye { height: 32px; } /* Ensures the eye shrinks properly on small mobiles */
 }
 
 /* ========================================= */
@@ -1912,4 +1958,121 @@ body.page-leaving {
 .exhibit-frame .evidence-code,
 .card .case-tag {
   margin-left: 2px;
+}
+
+/* ========================================= */
+/* INTRO BOOT SEQUENCE                       */
+/* ========================================= */
+#intro-sequence {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0d0d0d;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Force standard cursor when intro is up to prevent weird glitches */
+body.intro-active, body.intro-active a, body.intro-active button {
+  cursor: default !important;
+}
+body.intro-active .custom-cursor,
+body.intro-active .cursor-trail {
+  display: none !important;
+}
+
+.boot-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(158, 66, 66, 0.15) 0%, transparent 60%);
+  z-index: 1;
+  pointer-events: none;
+  animation: pulse-glow 3s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% { opacity: 0.5; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+.scanline {
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(158, 66, 66, 0.15) 50%, rgba(0,0,0,0) 100%);
+  position: absolute;
+  top: -100px;
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes scan {
+  0% { top: -100px; }
+  100% { top: 100vh; }
+}
+
+.boot-eye {
+  width: 300px;
+  max-width: 80vw;
+  filter: invert(1) brightness(150%) contrast(200%);
+  animation: flicker 0.15s infinite;
+  z-index: 2;
+  position: relative;
+}
+
+.boot-text {
+  margin-top: 30px;
+  font-family: 'IBM Plex Sans', monospace;
+  color: #9E4242;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  z-index: 2;
+}
+
+.authorise-btn {
+  margin-top: 20px;
+  background: rgba(158, 66, 66, 0.05);
+  border: 1px dashed rgba(158, 66, 66, 0.4);
+  color: #9E4242;
+  font-family: 'IBM Plex Sans', monospace;
+  padding: 12px 24px;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  cursor: pointer !important;
+  transition: all 0.3s ease;
+  animation: blink 2s step-end infinite;
+  z-index: 2;
+  position: relative;
+}
+
+.authorise-btn:hover {
+  background: rgba(158, 66, 66, 0.2);
+  color: #F5F5F5;
+  border-color: #9E4242;
+  box-shadow: 0 0 15px rgba(158, 66, 66, 0.3);
+}
+
+@keyframes blink {
+  50% { opacity: 0.6; }
+}
+
+@keyframes flicker {
+  0% { opacity: 1; filter: invert(1) brightness(150%) contrast(200%) drop-shadow(0 0 5px rgba(158, 66, 66, 0.4)); transform: translate(0, 0); }
+  20% { opacity: 0.8; filter: invert(1) brightness(120%) contrast(300%); transform: translate(-2px, 1px); }
+  40% { opacity: 0.4; }
+  60% { opacity: 1; transform: translate(2px, -1px); }
+  80% { opacity: 0.9; }
+  100% { opacity: 1; filter: invert(1) brightness(150%) contrast(200%) drop-shadow(0 0 15px rgba(158, 66, 66, 0.7)); transform: translate(0, 0); }
+}
+
+.fade-out-intro {
+  opacity: 0;
+  pointer-events: none;
 }

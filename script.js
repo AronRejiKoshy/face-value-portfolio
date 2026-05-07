@@ -121,16 +121,13 @@ const clipboardToast = document.getElementById('clipboardToast');
 
 if (copyEmailBtn) {
  copyEmailBtn.addEventListener('click', (e) => {
-   e.preventDefault(); // Stops the page from refreshing when clicking the link
-   e.stopPropagation(); // Ensures clicking this doesn't accidentally trigger a card animation
+   e.preventDefault(); 
+   e.stopPropagation(); 
    
    const email = 'aronreji05@gmail.com';
    
    navigator.clipboard.writeText(email).then(() => {
-     // Show the notification
      clipboardToast.classList.add('show');
-     
-     // Hide it automatically after 3 seconds
      setTimeout(() => {
        clipboardToast.classList.remove('show');
      }, 3000);
@@ -138,4 +135,32 @@ if (copyEmailBtn) {
      console.error('Failed to copy email: ', err);
    });
  });
+}
+
+// =========================
+// INTRO BOOT SEQUENCE LOGIC
+// =========================
+const intro = document.getElementById('intro-sequence');
+const authBtn = document.querySelector('.authorise-btn');
+
+if (intro && authBtn) {
+  // If the intro wasn't hidden by our inline script, set it up
+  if (intro.style.display !== 'none') {
+    document.body.style.overflow = 'hidden';
+
+    authBtn.addEventListener('click', () => {
+      // Mark that the user has seen the intro this session
+      sessionStorage.setItem('faceValueIntroSeen', 'true');
+      
+      intro.classList.add('fade-out-intro');
+      document.body.style.overflow = '';
+      
+      // Remove the class that hides the custom cursor
+      document.body.classList.remove('intro-active');
+      
+      setTimeout(() => {
+        intro.remove();
+      }, 1000); 
+    });
+  }
 }

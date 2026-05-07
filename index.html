@@ -9,11 +9,30 @@
  <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="home-page">
+<body class="home-page intro-active">
+
+ <div id="intro-sequence">
+   <div class="scanline"></div>
+   <div class="boot-glow"></div>
+   <img src="assets/face_value_logo.png" alt="System Booting" class="boot-eye">
+   <div class="boot-text">SYSTEM_LOG: 441 SECURED.</div>
+   <button class="authorise-btn">[ CLICK TO AUTHORISE ACCESS ]</button>
+ </div>
+
+ <script>
+   if (sessionStorage.getItem('faceValueIntroSeen') === 'true') {
+     document.getElementById('intro-sequence').style.display = 'none';
+     document.body.classList.remove('intro-active');
+   }
+ </script>
 
  <header class="home-title">
    <p class="case-kicker">Case Index / Portfolio</p>
-   <h1>FACE VALUE</h1>
+   <h1>
+     <span>FACE</span>
+     <img src="assets/face_value_logo.png" alt="Face Value Eye" class="title-eye">
+     <span>VALUE</span>
+   </h1>
    <p class="case-summary">An evidence board for the planning, research, making, and presentation of the project.</p>
  </header>
 

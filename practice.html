@@ -10,7 +10,6 @@
   
   <link rel="stylesheet" href="style.css">
 
-  <!-- INLINE STYLES FOR THE WEB DEV GRID -->
   <style>
     .framework-grid {
       display: grid;
@@ -57,7 +56,6 @@
 
 <main class="dashboard-layout">
   
-  <!-- TERMINAL NAVIGATION SIDEBAR -->
   <aside class="dashboard-menu">
     <h2 class="menu-title">Select Database</h2>
     <button class="dashboard-btn active" data-tab="tab-mechanics">01 // Game Mechanics</button>
@@ -65,14 +63,12 @@
     <button class="dashboard-btn" data-tab="tab-branding">03 // Visual Identity</button>
     <button class="dashboard-btn" data-tab="tab-html">04 // Protocol: Web Dev</button>
     <button class="dashboard-btn" data-tab="tab-figma">05 // Protocol: Figma</button>
-    <button class="dashboard-btn" data-tab="tab-photoshop">06 // Protocol: Photoshop</button>
-    <button class="dashboard-btn" data-tab="tab-premiere">07 // Protocol: Premiere</button>
+    <button class="dashboard-btn" data-tab="tab-illustrator">06 // Protocol: Illustrator</button>
+    <button class="dashboard-btn" data-tab="tab-photoshop">07 // Protocol: Photoshop</button>
   </aside>
 
-  <!-- TERMINAL DISPLAY AREA -->
   <section class="dashboard-display">
     
-    <!-- TAB 1: MECHANICS -->
     <div class="tab-pane active" id="tab-mechanics">
       <div class="pane-header">
         <span class="evidence-code">ARCHIVE NO. 441A</span>
@@ -106,7 +102,6 @@
       </div>
     </div>
 
-    <!-- TAB 2: PHYSICAL -->
     <div class="tab-pane" id="tab-physical">
       <div class="pane-header">
         <span class="evidence-code">ARCHIVE NO. 441B</span>
@@ -145,7 +140,6 @@
       </div>
     </div>
 
-    <!-- TAB 3: BRANDING -->
     <div class="tab-pane" id="tab-branding">
       <div class="pane-header">
         <span class="evidence-code">ARCHIVE NO. 441C</span>
@@ -155,7 +149,6 @@
       <div class="branding-section">
         <h3>Typography Configuration</h3>
         
-        <!-- Primary Font: Full Width -->
         <div style="margin-bottom: 30px;">
           <span class="type-label">PRIMARY FONT / DISPLAY & HEADINGS</span>
           <div class="type-spec terminal-spec" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;">
@@ -168,11 +161,9 @@
           </div>
         </div>
 
-        <!-- Secondary Fonts: Side-by-Side Grid -->
         <span class="type-label" style="margin-bottom: 10px;">SECONDARY FONTS / DATA & UI</span>
         <div class="spec-grid" style="margin-bottom: 0; gap: 20px;">
           
-          <!-- IBM Plex Sans -->
           <div class="type-spec terminal-spec" style="font-family: 'IBM Plex Sans', sans-serif !important; padding: 25px;">
             <div class="type-content">
               <strong style="font-size: 22px;">IBM Plex Sans</strong>
@@ -181,7 +172,6 @@
             </div>
           </div>
 
-          <!-- Inter -->
           <div class="type-spec terminal-spec" style="font-family: 'Inter', sans-serif !important; padding: 25px;">
             <div class="type-content">
               <strong style="font-size: 22px;">Inter</strong>
@@ -221,7 +211,6 @@
       </div>
     </div>
 
-    <!-- TAB 4: HTML/CSS/JS (UPDATED 2x2 GRID & COPY) -->
     <div class="tab-pane" id="tab-html">
       <div class="pane-header">
         <span class="evidence-code">ARCHIVE NO. 441D</span>
@@ -246,35 +235,30 @@
         <img src="assets/github-commits.png" alt="GitHub Commits Log" class="dossier-img research-zoomable" style="margin-top: 20px; border: 1px solid rgba(245,245,245,0.1); border-radius: 4px;" data-caption="Operational Evidence Log: Tracking the website development progress on GitHub.">
       </div>
 
-      <!-- THE WEB FRAMEWORK 2x2 GRID -->
       <div style="margin-top: 40px;">
         <h3>The Web Framework</h3>
         <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px;">Building the terminal required juggling three different coding languages simultaneously, each handling a specific part of the operation. I had to learn how they interact to stop the archive from collapsing.</p>
 
         <div class="framework-grid">
 
-          <!-- Card 1 (HTML) -->
           <article class="framework-card grid-item">
             <h4 style="color: #F5F5F5; margin-top:0; margin-bottom: 10px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase;">HTML <span style="color: #9E4242;">// THE FOUNDATION</span></h4>
             <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px;">This is the digital filing cabinet. HTML provides the structural 'bones' of the site. I had to learn how to organize the content so the browser actually understands what is a heading, what is a button, and what is classified text. Without this, the archive would just be an unreadable pile of data.</p>
             <img src="assets/framework_html_snippet.png" alt="HTML Code Snippet" class="dossier-img research-zoomable" style="margin-top: 15px; border: 1px solid rgba(245,245,245,0.1);" data-caption="Structuring the digital filing cabinet.">
           </article>
 
-          <!-- Card 2 (CSS) -->
           <article class="framework-card grid-item">
             <h4 style="color: #F5F5F5; margin-top:0; margin-bottom: 10px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase;">CSS <span style="color: #9E4242;">// THE PAINT</span></h4>
             <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px;">Translating the visual identity into code. This is what makes the interface look like a redacted surveillance terminal rather than a boring Word document. I had to learn how to force grids, spacing, and colours to behave, frequently calling my 'associates' when the layouts inexplicably broke.</p>
             <img src="assets/framework_css_snippet.png" alt="CSS Code Snippet" class="dossier-img research-zoomable" style="margin-top: 15px; border: 1px solid rgba(245,245,245,0.1);" data-caption="Refining the visual layout and applying the identity.">
           </article>
 
-          <!-- Card 3 (JS) -->
           <article class="framework-card grid-item">
             <h4 style="color: #F5F5F5; margin-top:0; margin-bottom: 10px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase;">JS <span style="color: #9E4242;">// THE ELECTRICITY</span></h4>
             <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px;">Adding the interactive behaviour. JavaScript is the logic that brings the terminal to life, allowing you to click between tabs, 'decrypt' logs, and open evidence pop-ups. It required the most trial and error (and the most panicked emergency calls) to get right without breaking everything else.</p>
             <img src="assets/framework_js_snippet.png" alt="JavaScript Code Snippet" class="dossier-img research-zoomable" style="margin-top: 15px; border: 1px solid rgba(245,245,245,0.1);" data-caption="Wiring the interactive logic for the terminal buttons.">
           </article>
 
-          <!-- Card 4 (Iterations) -->
           <article class="framework-card grid-item">
             <h4 style="color: #F5F5F5; margin-top:0; margin-bottom: 10px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase;">THE HUB <span style="color: #9E4242;">// SYSTEM NAVIGATION</span></h4>
             <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px;">The culmination of the web development process. An early iteration of the central evidence board that ties the entire digital archive together, utilising precise CSS positioning to create an immersive, tactile navigation system for the user.</p>
@@ -285,7 +269,6 @@
       </div>
     </div>
 
-    <!-- TAB 5: FIGMA -->
     <div class="tab-pane" id="tab-figma">
       <div class="pane-header">
         <span class="evidence-code">ARCHIVE NO. 441E</span>
@@ -293,67 +276,55 @@
       </div>
       
       <div class="spec-block">
-        <h3>Application: System Architecture & Wireframing</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h3>Application: The Digital Evidence Board</h3>
+        <p>While Figma is conventionally used for high-fidelity UI prototyping, my application of the software was much more structural. Rather than designing pixel-perfect website screens, I utilised Figma as an infinite digital canvas, essentially a digital 'evidence board'. It served as the primary sorting facility to organize scattered research, map out game mechanics, and categorize visual assets before translating them into functional code or physical print.</p>
       </div>
 
-      <div class="spec-grid">
+      <div class="spec-block" style="margin-top: 40px;">
+        <h3>Spatial Organization</h3>
+        <p>By creating a strict page-based hierarchy within the file, I was able to transform a chaotic collection of ideas into an easily navigable digital space. This bird's-eye view of the project was critical for maintaining continuity between the physical board game components and the digital archive.</p>
+        <img src="assets/figma-organization.png" alt="Figma workspace showing page organization" class="dossier-img research-zoomable" style="margin-top: 20px; border: 1px solid rgba(245,245,245,0.1); border-radius: 4px;" data-caption="Using Figma's page structure to categorize and navigate project components.">
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tab-illustrator">
+      <div class="pane-header">
+        <span class="evidence-code">ARCHIVE NO. 441F</span>
+        <h2>Protocol: Adobe Illustrator</h2>
+      </div>
+      
+      <div class="spec-block">
+        <h3>Application: Vector Identity & Logo Generation</h3>
+        <p>To establish a credible institutional authority for <em>Face Value</em>, the project required a definitive logo mark. Having never used Adobe Illustrator extensively before, I had to rapidly learn the fundamentals of vector graphics. I dedicated myself to learning the essential tools, manipulating paths, adjusting anchor points, and using the shape builder, to construct a clean, scalable primary logo. It was a steep learning curve of trial, error, and wrestling with vectors to produce a mark that felt authentic and authoritative.</p>
+      </div>
+
+      <div class="spec-grid" style="margin-top: 30px;">
         <div class="grid-item">
-          <h3>Component Standardization</h3>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <h3>Vector Construction</h3>
+          <p>Translating conceptual ideas into scalable vector shapes. This phase required learning how to control bezier curves and geometric paths to craft a symbol that felt both official and slightly unsettling, perfectly fitting the investigative theme without losing legibility at smaller scales.</p>
+          <img src="assets/illustrator-workspace.png" class="dossier-img research-zoomable" style="margin-top: 15px; border: 1px solid rgba(245,245,245,0.1);" alt="Illustrator Workspace" data-caption="Manipulating anchor points and vector paths in Adobe Illustrator.">
         </div>
         <div class="grid-item">
-          <h3>Digital Prototyping</h3>
-          <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.</p>
+          <h3>Typographic Integration</h3>
+          <p>Pairing the newly constructed logo mark with the project's established typography. The primary challenge was balancing the visual weight of the vector symbol alongside the bold letterforms of the title, ensuring the branding looked seamless across both the physical evidence cards and the digital terminal.</p>
+          <img src="assets/logo-iterations.png" class="dossier-img research-zoomable" style="margin-top: 15px; border: 1px solid rgba(245,245,245,0.1);" alt="Logo Iterations" data-caption="Integrating the finalised vector mark with the brand typography.">
         </div>
       </div>
     </div>
 
-    <!-- TAB 6: PHOTOSHOP -->
     <div class="tab-pane" id="tab-photoshop">
       <div class="pane-header">
-        <span class="evidence-code">ARCHIVE NO. 441F</span>
+        <span class="evidence-code">ARCHIVE NO. 441G</span>
         <h2>Protocol: Adobe Photoshop</h2>
       </div>
       
       <div class="spec-block">
-        <h3>Application: Asset Generation & Manipulation</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vulputate eros ut purus consequat, at rhoncus lorem efficitur. Phasellus imperdiet libero non tellus volutpat, a aliquet erat hendrerit. Etiam sed rhoncus est.</p>
-      </div>
+        <h3>Application: Component Fabrication & Layout</h3>
+        <p>While Figma handled the overarching system architecture, Adobe Photoshop was deployed as the primary production engine for the physical board game components. This is where the simulation became tangible. The software was utilised as a digital forensics lab to composite, format, and prep all the physical assets for print, specifically the Character Profiles, Evidence Cards, and Location Tiles. Colour grading, noise overlays, and contrast adjustments were applied to all assets to simulate a cohesive, slightly degraded institutional aesthetic.</p>
 
-      <div class="spec-grid">
-        <div class="grid-item">
-          <h3>Evidence Compositing</h3>
-          <p>Maecenas tristique, mi ullamcorper volutpat varius, sem magna tempus arcu, in dictum leo sem sit amet lectus. Morbi vehicula bibendum est, vel tristique lectus pulvinar vel. In hac habitasse platea dictumst.</p>
-        </div>
-        <div class="grid-item">
-          <h3>Subject Profiling</h3>
-          <p>Aliquam erat volutpat. Nam nec neque at diam ullamcorper consequat in at ante. Sed euismod dui a ligula lobortis laoreet. Praesent aliquet libero nisl, quis pulvinar eros convallis nec. Nulla ullamcorper lorem eu cursus.</p>
-        </div>
-      </div>
-    </div>
+        <p style="margin-top: 24px;">The most intensive phase involved constructing the visual hierarchy for the suspect character profiles. The layout was heavily regimented through a complex grid system to ensure it felt like an official institutional dossier. By pairing the subject's portrait with starkly categorised consumer data, such as Brand Associations and Lifestyle Indicators, the design intentionally strips the humanity from the suspects. This frames them as data points for the players to arbitrarily judge, reinforcing the project's core exploration of subconscious bias.</p>
 
-    <!-- TAB 7: PREMIERE PRO -->
-    <div class="tab-pane" id="tab-premiere">
-      <div class="pane-header">
-        <span class="evidence-code">ARCHIVE NO. 441G</span>
-        <h2>Protocol: Adobe Premiere Pro</h2>
-      </div>
-      
-      <div class="spec-block">
-        <h3>Application: Surveillance & Briefing Construction</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a tellus nec elit blandit pulvinar et sed diam. Cras imperdiet, dolor sed vehicula mollis, sem urna aliquam massa, condimentum vestibulum enim mi quis nisi.</p>
-      </div>
-
-      <div class="spec-grid">
-        <div class="grid-item">
-          <h3>Narrative Sequencing</h3>
-          <p>Vestibulum fringilla pellentesque est, id laoreet nisl fermentum eget. Donec pretium lacus neque, ut scelerisque est interdum eu. Nunc condimentum nunc non varius auctor. Suspendisse potenti.</p>
-        </div>
-        <div class="grid-item">
-          <h3>Behavioural Documentation</h3>
-          <p>Sed vel varius sem. Ut vulputate sapien nisi, vel dictum odio aliquet id. Nullam aliquet convallis felis id faucibus. Sed eleifend congue massa vel viverra. Vivamus cursus finibus erat, at facilisis sem condimentum rutrum.</p>
-        </div>
+        <img src="assets/ps-character-card.png" class="dossier-img research-zoomable" style="margin-top: 30px; border: 1px solid rgba(245,245,245,0.1); border-radius: 4px;" alt="Photoshop Character Card Setup" data-caption="Assembling the institutional suspect profiles using complex grid layouts in Adobe Photoshop.">
       </div>
     </div>
 
@@ -362,14 +333,12 @@
 
 <a href="index.html" class="return-archive">[ RETURN TO ARCHIVE ]</a>
 
-<!-- THE ZOOM OVERLAY (Added so screenshots can be clicked and zoomed) -->
 <div class="research-zoom-overlay" id="researchZoomOverlay" aria-hidden="true">
   <button class="research-zoom-close" type="button" aria-label="Close image zoom">&times;</button>
   <img id="researchZoomImage" alt="">
   <p id="researchZoomCaption"></p>
 </div>
 
-<!-- Custom Script for the Terminal Dashboard -->
 <script src="practice.js"></script>
 
 </body>
