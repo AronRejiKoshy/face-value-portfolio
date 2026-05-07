@@ -1,61 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <title>Project in Presentation | Face Value</title>
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Project in Presentation | Face Value</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .presentation-container {
+      background: linear-gradient(145deg, rgba(28, 27, 25, 0.92), rgba(16, 16, 16, 0.94)), repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 4px);
+      border: 1px solid rgba(245, 245, 245, 0.12);
+      border-radius: 4px;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
+      padding: 50px;
+      margin-bottom: 60px;
+    }
+
+    .section-divider {
+      border-bottom: 1px dashed rgba(216, 194, 138, 0.3);
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+      margin-top: 60px;
+    }
+
+    .section-divider:first-child {
+      margin-top: 0;
+    }
+
+    .section-divider h2 {
+      margin: 10px 0 0 0;
+      color: #f3f0e8;
+      font-size: 28px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* SINGLE MOCKUP LAYOUT (FIXED SIZING) */
+    .single-mockup-container {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .single-mockup-container img {
+      width: auto;
+      max-width: 100%; 
+      height: auto;
+      max-height: 65vh; /* Forces image to fit within the viewport height */
+      object-fit: contain;
+      border-radius: 2px;
+      border: 1px solid rgba(245, 245, 245, 0.1);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .mockup-caption {
+      margin-top: 20px;
+      color: rgba(245, 245, 245, 0.5);
+      font-family: 'IBM Plex Sans', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    /* 3D FLIP CARD UI (FIXED CROPPING) */
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+      margin-top: 40px;
+    }
+
+    .flip-container {
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1.414; /* A4 Portrait ratio to prevent cropping */
+      text-align: center;
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-style: preserve-3d;
+    }
+
+    .flip-container.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front, .flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border: 1px solid rgba(216, 194, 138, 0.3);
+      border-radius: 4px;
+      background: #111;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flip-back {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front img, .flip-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Guarantees the image is never clipped */
+    }
+
+    .flip-instruction {
+      text-align: center;
+      color: #d8c28a;
+      font-family: 'IBM Plex Sans', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      margin-top: 20px;
+      text-transform: uppercase;
+      animation: gentle-pulse 2s infinite;
+    }
+
+    @keyframes gentle-pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; text-shadow: 0 0 8px rgba(216, 194, 138, 0.4); }
+      100% { opacity: 0.6; }
+    }
+
+    .embargo-notice {
+      background: rgba(158, 66, 66, 0.08);
+      border-left: 3px solid #9E4242;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* CUSTOM CASE CLOSED BUTTON */
+    .case-closed-btn {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 80px auto;
+      color: #111;
+      font-family: 'IBM Plex Sans', monospace;
+      font-weight: bold;
+      font-size: 15px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 32px;
+      background: #9E4242;
+      border: 1px solid #9E4242;
+      border-radius: 2px;
+      box-shadow: 0 10px 30px rgba(158, 66, 66, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .case-closed-btn:hover {
+      background: #b84a4a;
+      box-shadow: 0 10px 40px rgba(158, 66, 66, 0.4);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 620px) {
+      .presentation-container { padding: 30px 20px; }
+      .flip-inner { aspect-ratio: 1 / 1.414; }
+    }
+  </style>
 </head>
 
 <body class="case-page presentation-page">
 
 <nav class="nav">
- <div class="logo">FACE VALUE <span class="nav-subtitle">/ FILE 05: PROJECT IN PRESENTATION</span></div>
- <div class="nav-links">
-   <a href="practice.html">Previous File</a>
-   <a href="management.html">First File</a>
- </div>
+  <div class="logo">FACE VALUE <span class="nav-subtitle">/ FILE 05: PROJECT IN PRESENTATION</span></div>
+  <div class="nav-links">
+    <a href="practice.html">Previous File</a>
+    <a href="index.html">Case Index</a>
+  </div>
 </nav>
 
 <header class="case-hero">
- <p class="case-kicker">Final Exhibit / Submitted Evidence</p>
- <h1>Project in Presentation</h1>
- <p>The final outcome is staged as an exhibit, with attention to how the audience encounters, understands, and remembers the work.</p>
- <div class="case-meta-row">
-   <span>Status: Ready for Review</span>
-   <span>Format: Exhibit Notes</span>
-   <span>Use: Present outcome</span>
- </div>
+  <p class="case-kicker">Final Exhibit / Submitted Evidence</p>
+  <h1>Project in Presentation</h1>
+  <p>The culmination of the investigation. This terminal logs the pre-deployment visualisations, declassified subject dossiers, and the final post-mortem analysis of the system architecture.</p>
+  <div class="case-meta-row">
+    <span>Status: Pending Live Deployment</span>
+    <span>Format: Final Dossier</span>
+    <span>Action: Scroll to Review</span>
+  </div>
 </header>
 
 <main class="presentation-stage">
- <section class="exhibit-frame">
-   <span class="evidence-code">FINAL EXHIBIT</span>
-   <h2>Outcome Display</h2>
-   <p>Place final images, installation shots, presentation boards, video stills, or documentation here. This should feel like the closing argument of the case.</p>
- </section>
+  
+  <div class="presentation-container">
 
- <section class="verdict-grid">
-   <article>
-     <h2>Audience Route</h2>
-     <p>How should viewers move through the work, and what should they understand first?</p>
-   </article>
+    <div class="section-divider">
+      <span class="evidence-code">ARCHIVE NO. 551A</span>
+      <h2>Pre-Deployment Visualisation</h2>
+    </div>
+    
+    <div class="spec-block">
+      <p style="color: rgba(245, 245, 245, 0.8); line-height: 1.6; font-size: 15px;">The physical apparatus for <em>FACE VALUE</em> is currently in the final stages of fabrication. The following documentation provides a simulated visualisation of the game components, identity systems, and spatial layout prior to public engagement.</p>
+      
+      <p style="color: #d8c28a; font-family: 'IBM Plex Sans', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 15px;">
+        [ STATUS: LIVE DEPLOYMENT SCHEDULED FOR 17 JUNE 2026 ]
+      </p>
 
-   <article>
-     <h2>Presentation Choices</h2>
-     <p>Explain scale, format, sequencing, framing, and any decisions made for the final viewing context.</p>
-   </article>
+      <div class="single-mockup-container">
+        <img src="assets/mockup-1.png" alt="Game Mockup Visualisation">
+        <p class="mockup-caption">[ NOTE: THIS IMAGE HAS BEEN AI GENERATED FOR ILLUSTRATIVE AND DESCRIPTIVE PURPOSES BUT THE FINAL APPARATUS WILL BE VERY SIMILAR TO THIS SPECIFICATION. ]</p>
+      </div>
+    </div>
 
-   <article>
-     <h2>Reflection</h2>
-     <p>Close the case by identifying what the project proves, what it questions, and what could develop next.</p>
-   </article>
- </section>
+    <div class="section-divider">
+      <span class="evidence-code">ARCHIVE NO. 551B</span>
+      <h2>Declassified Subject Dossiers</h2>
+    </div>
+
+    <div class="spec-block">
+      <p style="color: rgba(245, 245, 245, 0.8); line-height: 1.6; font-size: 15px;">The suspect profiles act as the primary interface for bias extraction during gameplay. Below are two fully fabricated identity cards, displaying how brand signifiers and lifestyle cues are structured to trigger rapid, unconscious judgment.</p>
+
+      <div class="flip-grid">
+        <div>
+          <div class="flip-container" onclick="this.classList.toggle('flipped')">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="assets/char-1-front.png" alt="Character 1 Front">
+              </div>
+              <div class="flip-back">
+                <img src="assets/char-1-back.png" alt="Character 1 Back">
+              </div>
+            </div>
+          </div>
+          <div class="flip-instruction">[ CLICK CARD TO INSPECT REVERSE ]</div>
+        </div>
+
+        <div>
+          <div class="flip-container" onclick="this.classList.toggle('flipped')">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <img src="assets/char-2-front.png" alt="Character 2 Front">
+              </div>
+              <div class="flip-back">
+                <img src="assets/char-2-back.png" alt="Character 2 Back">
+              </div>
+            </div>
+          </div>
+          <div class="flip-instruction">[ CLICK CARD TO INSPECT REVERSE ]</div>
+        </div>
+      </div>
+
+      <div class="embargo-notice">
+        <h4 style="margin: 0 0 8px 0; color: #9E4242; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;">Security Restriction</h4>
+        <p style="margin: 0; color: rgba(245, 245, 245, 0.75); font-size: 14px; line-height: 1.6;">Only two subjects have been declassified for this preliminary briefing. The remaining suspect profiles and location assets are sealed under administrative restriction until the exhibition opens to the public on <strong>17/06/26</strong>.</p>
+      </div>
+    </div>
+
+    <div class="section-divider">
+      <span class="evidence-code">ARCHIVE NO. 551C</span>
+      <h2>Key Informants / Acknowledgements</h2>
+    </div>
+
+    <div class="spec-block">
+      <p style="color: rgba(245, 245, 245, 0.8); line-height: 1.6; font-size: 15px;">This investigation required intelligence extraction, technical support, and critical oversight from numerous sources. I would like to formally acknowledge the following individuals for their contributions to the case:</p>
+
+      <ul class="tech-list" style="margin-top: 20px;">
+        <li style="margin-bottom: 12px;"><strong>My Tutors:</strong> For providing critical oversight, strategic direction, and ensuring the theoretical framework remained rigorous and conceptually sharp.</li>
+        <li style="margin-bottom: 12px;"><strong>My Computer Science Flatmates:</strong> For emergency technical interventions, late-night debugging protocols, and helping salvage the web development architecture when the system crashed.</li>
+        <li><strong>Playtest Subjects:</strong> To the initial participants who unknowingly provided the foundational behavioural data required to refine the game mechanics.</li>
+      </ul>
+    </div>
+
+    <div class="section-divider">
+      <span class="evidence-code">ARCHIVE NO. 551D</span>
+      <h2>Case Post-Mortem / Reflection</h2>
+    </div>
+
+    <div class="spec-block" style="color: rgba(245, 245, 245, 0.8); line-height: 1.8; font-size: 15px;">
+      <p style="margin-bottom: 16px;"><em>Face Value</em> successfully transitioned from a theoretical investigation of semiotics into a functional system of behavioural exposure. By weaponising the mechanics of social deduction games, the operation proves that branding is not merely a commercial tool, but a deeply embedded cultural infrastructure used to profile, categorise, and judge identity.</p>
+      
+      <p style="margin-bottom: 16px;">The most significant intelligence gathered from this process was the realisation that a traditional written report could only <em>describe</em> unconscious bias. The interactive format of the board game forces subjects to actively <em>perform</em> it. As the operation developed, it became increasingly clear that the most revealing data occurred not through explanation, but through forced participation. Observing subjects rapidly construct assumptions from aesthetic cues, lifestyle markers, and brand associations reinforced how instinctive and immediate social profiling has become within contemporary culture.</p>
+
+      <p style="margin-bottom: 16px;">One of the primary logistical challenges was managing the scale of the operation independently. Constructing the digital terminal, engineering the game mechanics, developing the visual identity, writing the situational narratives, and fabricating the physical apparatus would typically require multiple specialised operatives. Balancing these elements under severe time constraints became one of the steepest learning curves of the investigation. However, this forced a rigorous, interdisciplinary approach across branding, digital production, storytelling, and physical prototyping.</p>
+
+      <p style="margin-bottom: 16px;">The parameters of the investigation shifted significantly from the initial proposal. Early iterations were heavily theoretical and functioned purely as conceptual inquiries into semiotics. Over time, the directive evolved into an experiential system blurring the boundaries between game design, behavioural experimentation, and investigative worldbuilding. Supervisor intelligence was critical in pivoting the project away from simply presenting evidence toward constructing a scenario where subjects could physically experience the psychological tripwires for themselves.</p>
+
+      <p style="margin-bottom: 16px;">A major technical achievement within the case was the deployment of this interactive terminal. Building the archive required rapidly decoding HTML, CSS, and JavaScript to construct a secure platform capable of housing the project's fictional world. Rather than functioning as a standard evidence log, the website became an extension of the simulation, reinforcing the surveillance aesthetic and organising intelligence into a navigable database. This process has initiated a new directive in digital interaction design that will inform future creative operations.</p>
+
+      <p style="margin-bottom: 16px;">The surveillance process also forced a critical audit of my own cognitive biases. Through dissecting identity systems and behavioural profiling, I became acutely aware of how rapidly assumptions are formed in everyday environments, including within my own psychological framework. The operation highlighted how consumer aesthetics subtly operate as social shorthand, contaminating judgement before any factual baseline is established.</p>
+
+      <p style="margin-bottom: 16px;">While the current apparatus provides a functioning foundation for <em>Face Value</em>, several systems require further calibration. Additional field testing is required to refine the interrogation mechanics, voting systems, and player interaction dynamics. Future deployment will focus heavily on increasing replayability by introducing new case files, additional suspect profiles, expanded evidence hierarchies, and alternative location structures. Expanding these variables will allow the operation to evolve beyond a singular narrative into a highly modular behavioural profiling platform.</p>
+
+      <p style="margin-bottom: 0;">Finally, <em>Face Value</em> is engineered to leave subjects acutely aware of the flawed systems of judgement they unconsciously enforce. Rather than presenting bias as an abstract academic theory, the operation exposes it in real time, forcing subjects to confront how easily perception overpowers objective truth when identity is reduced to a constructed performance.</p>
+    </div>
+
+  </div>
+
 </main>
 
-<a href="index.html" class="return-archive">[ RETURN TO ARCHIVE ]</a>
+<a href="#" id="case-closed-btn" class="case-closed-btn">[ CLOSE CASE & PURGE TERMINAL ]</a>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Interactive 3D Flip Card Check
+    console.log("Terminal UI: Flip mechanics loaded.");
+
+    // Sequence for Purging Terminal & Resetting to Boot Screen
+    const caseClosedBtn = document.getElementById('case-closed-btn');
+    if(caseClosedBtn) {
+      caseClosedBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // This line wipes the browser's memory of the intro, forcing it to play again
+        sessionStorage.removeItem('faceValueIntroSeen');
+        // Redirect back to the index page where the eye sequence will launch
+        window.location.href = 'index.html';
+      });
+    }
+  });
+</script>
 
 </body>
 </html>

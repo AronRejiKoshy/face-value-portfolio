@@ -23,11 +23,23 @@
       flex-direction: column;
     }
     .framework-card img {
-      margin-top: auto; /* Pushes the image to the bottom so they align nicely */
+      margin-top: auto; 
+    }
+    /* Controls the new Logo Symbology side-by-side layout */
+    .logo-symbology-grid {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) 2.5fr;
+      gap: 50px;
+      align-items: center;
     }
     @media (max-width: 800px) {
       .framework-grid {
         grid-template-columns: 1fr;
+      }
+      .logo-symbology-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
       }
     }
   </style>
@@ -58,92 +70,43 @@
   
   <aside class="dashboard-menu">
     <h2 class="menu-title">Select Database</h2>
-    <button class="dashboard-btn active" data-tab="tab-mechanics">01 // Game Mechanics</button>
-    <button class="dashboard-btn" data-tab="tab-physical">02 // Physical Apparatus</button>
-    <button class="dashboard-btn" data-tab="tab-branding">03 // Visual Identity</button>
-    <button class="dashboard-btn" data-tab="tab-html">04 // Protocol: Web Dev</button>
-    <button class="dashboard-btn" data-tab="tab-figma">05 // Protocol: Figma</button>
-    <button class="dashboard-btn" data-tab="tab-illustrator">06 // Protocol: Illustrator</button>
-    <button class="dashboard-btn" data-tab="tab-photoshop">07 // Protocol: Photoshop</button>
+    <button class="dashboard-btn active" data-tab="tab-branding">01 // Visual Identity</button>
+    <button class="dashboard-btn" data-tab="tab-mechanics">02 // Game Mechanics</button>
+    <button class="dashboard-btn" data-tab="tab-physical">03 // Physical Apparatus</button>
+    <button class="dashboard-btn" data-tab="tab-characters">04 // Protocol: Character Identity</button>
+    <button class="dashboard-btn" data-tab="tab-html">05 // Protocol: Web Dev</button>
+    <button class="dashboard-btn" data-tab="tab-figma">06 // Protocol: Figma</button>
+    <button class="dashboard-btn" data-tab="tab-illustrator">07 // Protocol: Illustrator</button>
+    <button class="dashboard-btn" data-tab="tab-photoshop">08 // Protocol: Photoshop</button>
   </aside>
 
   <section class="dashboard-display">
-    
-    <div class="tab-pane active" id="tab-mechanics">
+
+    <div class="tab-pane active" id="tab-branding">
       <div class="pane-header">
         <span class="evidence-code">ARCHIVE NO. 441A</span>
-        <h2>System Overview & Mechanics</h2>
-      </div>
-      
-      <div class="spec-block">
-        <h3>Concept Directive</h3>
-        <p>Face Value is a social deduction board game designed to explore how players construct suspicion from limited, brand-coded information. Players are presented with a crime case and a set of suspects. Through interaction, discussion, and evidence collection, they must determine who is responsible. The system is engineered to reveal how narrative and perception override factual reasoning.</p>
-      </div>
-
-      <div class="spec-block">
-        <h3>Player Role Parameters</h3>
-        <p>Each player assumes the identity of a suspect connected to the victim. Players are not assigned as the murderer. Instead, they participate in the process of investigation, discussion, and accusation. Their role is to interpret evidence, form narratives, and influence collective judgment.</p>
-      </div>
-
-      <div class="spec-block">
-        <h3>Operational Flow</h3>
-        <ol class="tech-list">
-          <li><strong>Setup:</strong> Players are assigned character profiles and initial context is given.</li>
-          <li><strong>Investigation:</strong> Players move between locations, collecting evidence and are allowed to use character abilities.</li>
-          <li><strong>Discussion:</strong> Players share interpretations and form suspicions based on available information.</li>
-          <li><strong>Judgment:</strong> Players return to a central location and vote on who they believe is responsible.</li>
-          <li><strong>Reveal:</strong> The true cause of the crime and outcome is revealed.</li>
-        </ol>
-      </div>
-
-      <div class="spec-block">
-        <h3>Core Mechanic Vulnerability</h3>
-        <p>The system is structured to prioritize interpretation over objective truth. Evidence is distributed in a way that requires cross-referencing, yet players are more likely to form conclusions based on character perception and narrative coherence. This creates a space where branding, lifestyle cues, and identity markers influence judgment more strongly than factual evidence.</p>
-      </div>
-    </div>
-
-    <div class="tab-pane" id="tab-physical">
-      <div class="pane-header">
-        <span class="evidence-code">ARCHIVE NO. 441B</span>
-        <h2>Physical Apparatus</h2>
-      </div>
-
-      <div class="spec-block">
-        <h3>Spatial Layout</h3>
-        <ul class="tech-list">
-          <li><strong>Location Tiles:</strong> 5-6 tiles representing physical spaces (Example: Gym, café, apartment, university space, shopping mall).</li>
-          <li><strong>Central Space:</strong> "Court" or Discussion Area (can be adapted based on the specific case parameters).</li>
-        </ul>
-      </div>
-
-      <div class="spec-grid">
-        <div class="grid-item">
-          <h3>Voting System</h3>
-          <p><strong>Public Voting:</strong> Tokens placed on suspects.<br>
-          <strong>Private Recording Sheet:</strong> Questions/prompts to guide the player (utilised as technical depth for data extraction).</p>
-        </div>
-        <div class="grid-item">
-          <h3>Movement System</h3>
-          <p>Each round, the player chooses where they want to go. They can use their "ability" to draw relevant evidence based on the location tile.</p>
-        </div>
-      </div>
-
-      <div class="spec-grid">
-        <div class="grid-item">
-          <h3>Evidence Cards</h3>
-          <p>Object cards. Ideally, these are the branded objects affiliated with the victim, the suspect, or other players. Content cards provide more information about location or timeline hints.</p>
-        </div>
-        <div class="grid-item">
-          <h3>Character Cards</h3>
-          <p>Profiles containing baseline data: Portrait, Name, Occupation, Lifestyle markers, Traits, Flaws, and unique "Abilities". Designed to trigger instant profiling.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-pane" id="tab-branding">
-      <div class="pane-header">
-        <span class="evidence-code">ARCHIVE NO. 441C</span>
         <h2>Visual Identity Hierarchy</h2>
+      </div>
+
+      <div class="branding-section" style="margin-bottom: 50px;">
+        <span class="type-label">PRIMARY LOGO MARK & SYMBOLOGY</span>
+        <div class="terminal-spec logo-symbology-grid" style="padding: 40px; border-radius: 2px;">
+          
+          <div style="text-align: center;">
+            <img src="assets/face_value_logo.png" alt="Face Value Eye Logo" style="width: 100%; max-width: 240px; filter: invert(1) drop-shadow(0 0 25px rgba(255, 255, 255, 0.15));">
+          </div>
+          
+          <div style="text-align: left;">
+            <h3 style="color: #9E4242; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; margin-top: 0;">Conceptual Framework</h3>
+            <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px; margin-bottom: 16px;">
+              The visual identity adopts a fragmented eye motif resembling biometric scanning systems and corporate interface symbols. Crucially, it does not look like a human eye. It is mechanical, surveillant, and systematised. Resembling a camera shutter or a targeting reticle, the asymmetrical form strips away empathy, feeling deliberately cold, corporate, and observational.
+            </p>
+            <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px; margin: 0;">
+              This segmented architecture directly reflects the project’s exploration of associative judgment. The broken circular centre illustrates how perception is constructed from fragments of information, where incomplete data rapidly becomes perceived 'truth.' It visually represents the breakdown between objective observation and projected meaning, serving as a constant reminder that the players are engaging in procedural, algorithmic profiling based purely on branding-coded surface cues.
+            </p>
+          </div>
+
+        </div>
       </div>
 
       <div class="branding-section">
@@ -210,10 +173,241 @@
         </div>
       </div>
     </div>
+    
+    <div class="tab-pane" id="tab-mechanics">
+      <div class="pane-header">
+        <span class="evidence-code">ARCHIVE NO. 441B</span>
+        <h2>System Overview & Mechanics</h2>
+      </div>
+      
+      <div class="spec-block">
+        <h3>Concept Directive</h3>
+        <p>Face Value is a social deduction board game designed to explore how players construct suspicion from limited, brand-coded information. Players are presented with a crime case and a set of suspects. Through interaction, discussion, and evidence collection, they must determine who is responsible. The system is engineered to reveal how narrative and perception override factual reasoning.</p>
+      </div>
+
+      <div class="spec-block">
+        <h3>Player Role Parameters</h3>
+        <p>Each player assumes the identity of a suspect connected to the victim. Players are not assigned as the murderer. Instead, they participate in the process of investigation, discussion, and accusation. Their role is to interpret evidence, form narratives, and influence collective judgment.</p>
+      </div>
+
+      <div class="spec-block">
+        <h3>Operational Flow</h3>
+        <ol class="tech-list">
+          <li><strong>Setup:</strong> Players are assigned character profiles and initial context is given.</li>
+          <li><strong>Investigation:</strong> Players move between locations, collecting evidence and are allowed to use character abilities.</li>
+          <li><strong>Discussion:</strong> Players share interpretations and form suspicions based on available information.</li>
+          <li><strong>Judgment:</strong> Players return to a central location and vote on who they believe is responsible.</li>
+          <li><strong>Reveal:</strong> The true cause of the crime and outcome is revealed.</li>
+        </ol>
+      </div>
+
+      <div class="spec-block">
+        <h3>Core Mechanic Vulnerability</h3>
+        <p>The system is structured to prioritize interpretation over objective truth. Evidence is distributed in a way that requires cross-referencing, yet players are more likely to form conclusions based on character perception and narrative coherence. This creates a space where branding, lifestyle cues, and identity markers influence judgment more strongly than factual evidence.</p>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tab-physical">
+      <div class="pane-header">
+        <span class="evidence-code">ARCHIVE NO. 441C</span>
+        <h2>Physical Apparatus</h2>
+      </div>
+
+      <div class="spec-block">
+        <h3>Spatial Layout</h3>
+        <ul class="tech-list">
+          <li><strong>Location Tiles:</strong> 5-6 tiles representing physical spaces (Example: Gym, café, apartment, university space, shopping mall).</li>
+          <li><strong>Central Space:</strong> "Court" or Discussion Area (can be adapted based on the specific case parameters).</li>
+        </ul>
+      </div>
+
+      <div class="spec-grid">
+        <div class="grid-item">
+          <h3>Voting System</h3>
+          <p><strong>Public Voting:</strong> Tokens placed on suspects.<br>
+          <strong>Private Recording Sheet:</strong> Questions/prompts to guide the player (utilised as technical depth for data extraction).</p>
+        </div>
+        <div class="grid-item">
+          <h3>Movement System</h3>
+          <p>Each round, the player chooses where they want to go. They can use their "ability" to draw relevant evidence based on the location tile.</p>
+        </div>
+      </div>
+
+      <div class="spec-grid">
+        <div class="grid-item">
+          <h3>Evidence Cards</h3>
+          <p>Object cards. Ideally, these are the branded objects affiliated with the victim, the suspect, or other players. Content cards provide more information about location or timeline hints.</p>
+        </div>
+        <div class="grid-item">
+          <h3>Character Cards</h3>
+          <p>Profiles containing baseline data: Portrait, Name, Occupation, Lifestyle markers, Traits, Flaws, and unique "Abilities". Designed to trigger instant profiling.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tab-characters">
+      <div class="pane-header">
+        <span class="evidence-code">ARCHIVE NO. 441D</span>
+        <h2>Protocol: Character Identity</h2>
+      </div>
+      
+      <div class="spec-block">
+        <h3>Application: Brand Psychology & Profiling</h3>
+        <p>One of the central design principles behind <em>Face Value</em> was the use of recognisable real-world brands to trigger unconscious social assumptions during gameplay. Each character was intentionally constructed through contemporary lifestyle branding, allowing players to immediately form perceptions surrounding class, morality, ambition, professionalism, trustworthiness, wellness, status, or instability.</p>
+        
+        <p style="margin-top: 16px;">This structural approach directly applies the consumer psychology frameworks established by <a href="research.html#modal-c" class="inline-evidence-link">Susan Fournier</a>. The selected brands function as cultural signifiers rather than mere product placement. Players unconsciously associate meaning with each brand based on their own experiences, social media exposure, and cultural understanding. These deeply embedded psychological relationships become part of the gameplay system itself.</p>
+      </div>
+
+      <div class="spec-grid" style="margin-top: 40px;">
+        <div class="grid-item" style="background: rgba(0, 0, 0, 0.4); border-left: 3px solid #9E4242;">
+          <span class="evidence-code">SUBJECT 01</span>
+          <h3 style="margin-top: 8px; margin-bottom: 4px; color: #f3f0e8; font-size: 18px;">Jay Khan</h3>
+          <span class="type-label" style="border:none; margin-bottom: 12px; padding:0;">Freelance Videographer</span>
+          <p style="font-size: 12px; color: #d8c28a; font-family: 'IBM Plex Sans', monospace; text-transform: uppercase; margin-bottom: 16px;">[ Profile: Performance masculinity / creative productivity culture ]</p>
+          <ul class="tech-list" style="font-size: 13px; margin: 0; padding-left: 16px;">
+            <li style="margin-bottom: 8px;"><strong>Gymshark</strong> — contemporary performance fitness culture associated with discipline, body image, and social media masculinity.</li>
+            <li style="margin-bottom: 8px;"><strong>Nike Running</strong> — aspirational athletic branding connected to motivation, self-improvement, and competitive identity.</li>
+            <li style="margin-bottom: 8px;"><strong>Apple Watch Ultra</strong> — optimisation culture, quantified self-tracking, and high-performance lifestyle signalling.</li>
+            <li style="margin-bottom: 8px;"><strong>Huel Black Edition</strong> — convenience nutrition associated with productivity-focused urban lifestyles.</li>
+            <li style="margin-bottom: 8px;"><strong>Arc'teryx</strong> — technical luxury streetwear associated with modern status and curated masculinity.</li>
+            <li style="margin-bottom: 8px;"><strong>Monzo Premium</strong> — digital-first banking associated with freelancers, startup culture, and financially fluid lifestyles.</li>
+            <li style="margin-bottom: 8px;"><strong>Canon EOS R6</strong> — professional creator equipment associated with content production and visual culture.</li>
+            <li><strong>AirPods Max</strong> — premium consumer technology associated with aesthetic minimalism and social status.</li>
+          </ul>
+        </div>
+
+        <div class="grid-item" style="background: rgba(0, 0, 0, 0.4); border-left: 3px solid #9E4242;">
+          <span class="evidence-code">SUBJECT 02</span>
+          <h3 style="margin-top: 8px; margin-bottom: 4px; color: #f3f0e8; font-size: 18px;">Naomi Sato</h3>
+          <span class="type-label" style="border:none; margin-bottom: 12px; padding:0;">Wellness Startup Founder</span>
+          <p style="font-size: 12px; color: #d8c28a; font-family: 'IBM Plex Sans', monospace; text-transform: uppercase; margin-bottom: 16px;">[ Profile: Luxury wellness culture / curated morality ]</p>
+          <ul class="tech-list" style="font-size: 13px; margin: 0; padding-left: 16px;">
+            <li style="margin-bottom: 8px;"><strong>Aesop</strong> — minimalist luxury branding associated with sophistication, ethical consumption, and calm professionalism.</li>
+            <li style="margin-bottom: 8px;"><strong>Lululemon</strong> — aspirational wellness culture tied to discipline, mindfulness, and upper-middle-class fitness identity.</li>
+            <li style="margin-bottom: 8px;"><strong>AG1</strong> — supplement branding connected to optimisation culture and biohacking lifestyles.</li>
+            <li style="margin-bottom: 8px;"><strong>Muji</strong> — restrained Japanese minimalism associated with calmness, order, and intentional living.</li>
+            <li style="margin-bottom: 8px;"><strong>Apple MacBook Pro</strong> — productivity culture and startup professionalism.</li>
+            <li style="margin-bottom: 8px;"><strong>Soho House</strong> — exclusivity, creative-industry networking, and cultural status.</li>
+            <li style="margin-bottom: 8px;"><strong>Diptyque</strong> — luxury fragrance branding associated with refined taste and curated interiors.</li>
+            <li><strong>Reformer Pilates</strong> — boutique fitness culture associated with aesthetic wellness and social privilege.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spec-grid">
+        <div class="grid-item" style="background: rgba(0, 0, 0, 0.4); border-left: 3px solid #9E4242;">
+          <span class="evidence-code">SUBJECT 03</span>
+          <h3 style="margin-top: 8px; margin-bottom: 4px; color: #f3f0e8; font-size: 18px;">Luca Moretti</h3>
+          <span class="type-label" style="border:none; margin-bottom: 12px; padding:0;">Luxury Fashion Buyer</span>
+          <p style="font-size: 12px; color: #d8c28a; font-family: 'IBM Plex Sans', monospace; text-transform: uppercase; margin-bottom: 16px;">[ Profile: Elite nightlife and fashion status culture ]</p>
+          <ul class="tech-list" style="font-size: 13px; margin: 0; padding-left: 16px;">
+            <li style="margin-bottom: 8px;"><strong>Prada</strong> — contemporary luxury fashion associated with exclusivity, wealth, and cultural sophistication.</li>
+            <li style="margin-bottom: 8px;"><strong>Bottega Veneta</strong> — understated luxury branding associated with old-money aesthetics and quiet status.</li>
+            <li style="margin-bottom: 8px;"><strong>Rolex</strong> — traditional luxury status signalling and financial success.</li>
+            <li style="margin-bottom: 8px;"><strong>Rimowa</strong> — premium travel culture associated with mobility and executive lifestyles.</li>
+            <li style="margin-bottom: 8px;"><strong>Soho House</strong> — elite networking environments and private social access.</li>
+            <li style="margin-bottom: 8px;"><strong>Berluti</strong> — luxury menswear craftsmanship associated with old-world sophistication.</li>
+            <li style="margin-bottom: 8px;"><strong>Negroni culture</strong> — nightlife sophistication and performative taste.</li>
+            <li><strong>American Express Platinum</strong> — high-status spending culture associated with exclusivity and privilege.</li>
+          </ul>
+        </div>
+
+        <div class="grid-item" style="background: rgba(0, 0, 0, 0.4); border-left: 3px solid #9E4242;">
+          <span class="evidence-code">SUBJECT 04</span>
+          <h3 style="margin-top: 8px; margin-bottom: 4px; color: #f3f0e8; font-size: 18px;">Kiara Baptiste</h3>
+          <span class="type-label" style="border:none; margin-bottom: 12px; padding:0;">Junior UX Designer</span>
+          <p style="font-size: 12px; color: #d8c28a; font-family: 'IBM Plex Sans', monospace; text-transform: uppercase; margin-bottom: 16px;">[ Profile: Quiet creative / soft aesthetic culture ]</p>
+          <ul class="tech-list" style="font-size: 13px; margin: 0; padding-left: 16px;">
+            <li style="margin-bottom: 8px;"><strong>Uniqlo</strong> — accessible minimalist fashion associated with practicality and understated identity.</li>
+            <li style="margin-bottom: 8px;"><strong>Fujifilm</strong> — analogue-inspired photography culture associated with artistic authenticity.</li>
+            <li style="margin-bottom: 8px;"><strong>MUBI</strong> — curated cinema culture associated with niche creative communities.</li>
+            <li style="margin-bottom: 8px;"><strong>Pinterest</strong> — aesthetic curation and visual identity building.</li>
+            <li style="margin-bottom: 8px;"><strong>Letterboxd</strong> — online film culture and socially performative media consumption.</li>
+            <li style="margin-bottom: 8px;"><strong>Muji stationery</strong> — organised creative productivity and minimalist aesthetics.</li>
+            <li style="margin-bottom: 8px;"><strong>Adobe Creative Cloud</strong> — professional creative-industry software associated with digital design work.</li>
+            <li><strong>Dr. Martens</strong> — alternative fashion identity associated with creative individuality.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spec-grid">
+        <div class="grid-item" style="background: rgba(0, 0, 0, 0.4); border-left: 3px solid #9E4242;">
+          <span class="evidence-code">SUBJECT 05</span>
+          <h3 style="margin-top: 8px; margin-bottom: 4px; color: #f3f0e8; font-size: 18px;">Daniel Cross</h3>
+          <span class="type-label" style="border:none; margin-bottom: 12px; padding:0;">Brand Strategist</span>
+          <p style="font-size: 12px; color: #d8c28a; font-family: 'IBM Plex Sans', monospace; text-transform: uppercase; margin-bottom: 16px;">[ Profile: Startup professionalism / productivity culture ]</p>
+          <ul class="tech-list" style="font-size: 13px; margin: 0; padding-left: 16px;">
+            <li style="margin-bottom: 8px;"><strong>Patagonia</strong> — ethical corporate branding associated with environmentally conscious professionalism.</li>
+            <li style="margin-bottom: 8px;"><strong>On Running</strong> — premium performance footwear associated with affluent urban professionals.</li>
+            <li style="margin-bottom: 8px;"><strong>Notion</strong> — hyper-productivity and startup workflow culture.</li>
+            <li style="margin-bottom: 8px;"><strong>Tesla</strong> — tech futurism and status-oriented innovation culture.</li>
+            <li style="margin-bottom: 8px;"><strong>WeWork</strong> — flexible corporate work culture and startup environments.</li>
+            <li style="margin-bottom: 8px;"><strong>Oura Ring</strong> — biometric optimisation and quantified wellness culture.</li>
+            <li style="margin-bottom: 8px;"><strong>LinkedIn Premium</strong> — performative professionalism and networking culture.</li>
+            <li><strong>Black Coffee culture</strong> — minimalist productivity identity associated with high-functioning work routines.</li>
+          </ul>
+        </div>
+
+        <div class="grid-item" style="background: rgba(0, 0, 0, 0.4); border-left: 3px solid #9E4242;">
+          <span class="evidence-code">SUBJECT 06</span>
+          <h3 style="margin-top: 8px; margin-bottom: 4px; color: #f3f0e8; font-size: 18px;">Zuri Adeyemi</h3>
+          <span class="type-label" style="border:none; margin-bottom: 12px; padding:0;">Community Organiser / PG Student</span>
+          <p style="font-size: 12px; color: #d8c28a; font-family: 'IBM Plex Sans', monospace; text-transform: uppercase; margin-bottom: 16px;">[ Profile: Political activism / anti-corporate youth culture ]</p>
+          <ul class="tech-list" style="font-size: 13px; margin: 0; padding-left: 16px;">
+            <li style="margin-bottom: 8px;"><strong>Patagonia</strong> — ethical activism and environmentally conscious identity politics.</li>
+            <li style="margin-bottom: 8px;"><strong>Dr. Martens</strong> — protest culture and alternative youth identity.</li>
+            <li style="margin-bottom: 8px;"><strong>Depop</strong> — second-hand fashion culture and anti-fast-fashion values.</li>
+            <li style="margin-bottom: 8px;"><strong>The North Face</strong> — contemporary outdoor streetwear associated with youth subcultures.</li>
+            <li style="margin-bottom: 8px;"><strong>Levi's</strong> — timeless utilitarian fashion associated with social authenticity.</li>
+            <li style="margin-bottom: 8px;"><strong>Tote bag culture</strong> — politically expressive and university-oriented identity signalling.</li>
+            <li style="margin-bottom: 8px;"><strong>Substack</strong> — independent political writing and commentary culture.</li>
+            <li><strong>Oatly</strong> — sustainability branding associated with progressive urban consumers.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="spec-block" style="margin-top: 50px;">
+        <h3 style="border-bottom: 1px dashed rgba(216, 194, 138, 0.3); padding-bottom: 12px; margin-bottom: 24px;">Location Brand Research</h3>
+        <div class="spec-grid">
+          <div class="grid-item">
+            <h4 style="color: #f3f0e8; margin: 0 0 8px 0; font-family: 'Helvetica Neue', sans-serif; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase;">Third Space Canary Wharf</h4>
+            <p style="font-size: 13px; color: rgba(245, 245, 245, 0.75); margin: 0;">Luxury boutique gym environment associated with elite wellness culture, financial success, optimisation, and modern masculinity.</p>
+          </div>
+          <div class="grid-item">
+            <h4 style="color: #f3f0e8; margin: 0 0 8px 0; font-family: 'Helvetica Neue', sans-serif; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase;">The Standard Hotel</h4>
+            <p style="font-size: 13px; color: rgba(245, 245, 245, 0.75); margin: 0;">Contemporary luxury hotel environment associated with creative-industry networking, nightlife culture, and aspirational urban identity.</p>
+          </div>
+          <div class="grid-item">
+            <h4 style="color: #f3f0e8; margin: 0 0 8px 0; font-family: 'Helvetica Neue', sans-serif; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase;">Soho House Shoreditch</h4>
+            <p style="font-size: 13px; color: rgba(245, 245, 245, 0.75); margin: 0;">Private members club associated with exclusivity, status, networking, and cultural gatekeeping.</p>
+          </div>
+          <div class="grid-item">
+            <h4 style="color: #f3f0e8; margin: 0 0 8px 0; font-family: 'Helvetica Neue', sans-serif; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase;">Ozone Coffee Roasters</h4>
+            <p style="font-size: 13px; color: rgba(245, 245, 245, 0.75); margin: 0;">Speciality coffee culture associated with remote working, freelance lifestyles, and contemporary creative labour.</p>
+          </div>
+          <div class="grid-item">
+            <h4 style="color: #f3f0e8; margin: 0 0 8px 0; font-family: 'Helvetica Neue', sans-serif; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase;">LN-CC</h4>
+            <p style="font-size: 13px; color: rgba(245, 245, 245, 0.75); margin: 0;">Luxury fashion retail environment associated with exclusivity, trend forecasting, and elite fashion culture.</p>
+          </div>
+          <div class="grid-item">
+            <h4 style="color: #f3f0e8; margin: 0 0 8px 0; font-family: 'Helvetica Neue', sans-serif; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase;">WeWork</h4>
+            <p style="font-size: 13px; color: rgba(245, 245, 245, 0.75); margin: 0;">Flexible startup workspace associated with entrepreneurial culture, productivity performance, and modern corporate identity.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-block" style="margin-top: 40px; padding: 24px; background: rgba(216, 194, 138, 0.05); border-left: 3px solid #d8c28a;">
+        <h3 style="color: #d8c28a; margin-top: 0;">Operational Impact</h3>
+        <p style="color: rgba(245, 245, 245, 0.85); font-size: 14px;">The use of real-world branding within <em>Face Value</em> allowed the project to explore how players unconsciously construct identity through culturally recognisable visual systems. Instead of relying on fictional archetypes, the game intentionally mirrors contemporary social environments that players already understand.</p>
+        <p style="color: rgba(245, 245, 245, 0.85); font-size: 14px;">This creates immediate assumptions before gameplay even begins. A player may unconsciously perceive a character as trustworthy, arrogant, disciplined, unstable, ethical, or superficial based entirely on brand associations and lifestyle aesthetics.</p>
+        <p style="color: rgba(245, 245, 245, 0.85); font-size: 14px; margin-bottom: 0;">The game system therefore transforms branding into an investigative mechanic, allowing players to experience how identity and judgement are socially constructed through design, consumer culture, and visual language.</p>
+      </div>
+
+    </div>
 
     <div class="tab-pane" id="tab-html">
       <div class="pane-header">
-        <span class="evidence-code">ARCHIVE NO. 441D</span>
+        <span class="evidence-code">ARCHIVE NO. 441E</span>
         <h2>Protocol: Web Development</h2>
       </div>
       
@@ -230,12 +424,18 @@
       </div>
 
       <div class="spec-block" style="margin-top: 40px;">
-        <h3>Operational Logging (GitHub)</h3>
+        <h3>Operational Logging & Deployment (GitHub)</h3>
         <p>Given the rapid trial-and-error nature of learning to code, maintaining a constant backup of the operation was paramount. All site updates were continuously logged and saved through GitHub. While the tracking notes (commits) reflect the slightly chaotic reality of building a site from scratch, the repository acts as an honest, chronological evidence log of the platform's evolution.</p>
-        <img src="assets/github-commits.png" alt="GitHub Commits Log" class="dossier-img research-zoomable" style="margin-top: 20px; border: 1px solid rgba(245,245,245,0.1); border-radius: 4px;" data-caption="Operational Evidence Log: Tracking the website development progress on GitHub.">
+        
+        <div style="margin-top: 20px; padding: 20px; border-left: 3px solid #d8c28a; background: rgba(216, 194, 138, 0.05);">
+          <h4 style="margin: 0 0 8px 0; color: #d8c28a; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;">Public Access Authorisation</h4>
+          <p style="margin: 0; color: rgba(245, 245, 245, 0.75); font-size: 14px; line-height: 1.6;">Beyond version control, GitHub also functioned as the deployment infrastructure. Utilising <strong>GitHub Pages</strong>, the local repository was pushed to a live server. This successfully transformed the offline HTML/CSS architecture into a publicly accessible, active terminal for external review and assessment.</p>
+        </div>
+
+        <img src="assets/github-commits.png" alt="GitHub Commits Log" class="dossier-img research-zoomable" style="margin-top: 24px; border: 1px solid rgba(245,245,245,0.1); border-radius: 4px;" data-caption="Operational Evidence Log: Tracking the website development progress and deployment on GitHub.">
       </div>
 
-      <div style="margin-top: 40px;">
+      <div class="spec-block" style="margin-top: 40px;">
         <h3>The Web Framework</h3>
         <p style="color: rgba(245, 245, 245, 0.75); line-height: 1.6; font-size: 14px;">Building the terminal required juggling three different coding languages simultaneously, each handling a specific part of the operation. I had to learn how they interact to stop the archive from collapsing.</p>
 
@@ -271,7 +471,7 @@
 
     <div class="tab-pane" id="tab-figma">
       <div class="pane-header">
-        <span class="evidence-code">ARCHIVE NO. 441E</span>
+        <span class="evidence-code">ARCHIVE NO. 441F</span>
         <h2>Protocol: Figma</h2>
       </div>
       
@@ -289,13 +489,13 @@
 
     <div class="tab-pane" id="tab-illustrator">
       <div class="pane-header">
-        <span class="evidence-code">ARCHIVE NO. 441F</span>
+        <span class="evidence-code">ARCHIVE NO. 441G</span>
         <h2>Protocol: Adobe Illustrator</h2>
       </div>
       
       <div class="spec-block">
         <h3>Application: Vector Identity & Logo Generation</h3>
-        <p>To establish a credible institutional authority for <em>Face Value</em>, the project required a definitive logo mark. Having never used Adobe Illustrator extensively before, I had to rapidly learn the fundamentals of vector graphics. I dedicated myself to learning the essential tools, manipulating paths, adjusting anchor points, and using the shape builder, to construct a clean, scalable primary logo. It was a steep learning curve of trial, error, and wrestling with vectors to produce a mark that felt authentic and authoritative.</p>
+        <p>To establish a credible institutional authority for <em>Face Value</em>, the project required a definitive logo mark. Having never used Adobe Illustrator extensively before, I had to rapidly learn the fundamentals of vector graphics. I dedicated myself to learning the essential tools: manipulating paths, adjusting anchor points, and using the shape builder, to construct a clean, scalable primary logo. It was a steep learning curve of trial, error, and wrestling with vectors to produce a mark that felt authentic and authoritative.</p>
       </div>
 
       <div class="spec-grid" style="margin-top: 30px;">
@@ -314,7 +514,7 @@
 
     <div class="tab-pane" id="tab-photoshop">
       <div class="pane-header">
-        <span class="evidence-code">ARCHIVE NO. 441G</span>
+        <span class="evidence-code">ARCHIVE NO. 441H</span>
         <h2>Protocol: Adobe Photoshop</h2>
       </div>
       
